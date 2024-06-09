@@ -1,0 +1,199 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024, Flatpak Team. Licensed under Creative Commons Attribution 4.0 International License.
+# This file is distributed under the same license as the Flatpak package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Flatpak\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-07 23:48+0700\n"
+"PO-Revision-Date: 2024-06-09 15:40+0700\n"
+"Last-Translator: Harry Mitchell <minhyh0987@gmail.com>\n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#: ../../basic-concepts.rst:2
+msgid "Basic concepts"
+msgstr "Các khái niệm cơ bản"
+
+#: ../../basic-concepts.rst:4
+msgid ""
+"Flatpak can be understood through a small number of key concepts. It is "
+"useful to be familiar with these before learning about how to use Flatpak "
+"from the command line, or using it to build applications."
+msgstr ""
+"Có thể hiểu về Flatpak thông qua một số ít khái niệm chính. Sẽ rất hữu ích "
+"nếu bạn làm quen với những điều này trước khi học cách sử dụng Flatpak từ "
+"dòng lệnh hoặc sử dụng nó để xây dựng ứng dụng."
+
+#: ../../basic-concepts.rst:11
+msgid "Runtimes"
+msgstr "Runtime"
+
+#: ../../basic-concepts.rst:13
+msgid ""
+"Runtimes provide the basic dependencies that are used by applications. Each "
+"application must be built against a runtime, and this runtime must be "
+"installed on a host system in order for the application to run (Flatpak can "
+"automatically install the runtime required by an application). Multiple "
+"different runtimes can be installed at the same time, including different "
+"versions of the same runtime."
+msgstr ""
+"Runtime cung cấp các dependency cơ bản được các ứng dụng sử dụng. Mỗi ứng "
+"dụng phải được xây dựng dựa trên một runtime và runtime này phải được cài "
+"đặt trên hệ thống máy chủ để ứng dụng có thể chạy (Flatpak có thể tự động "
+"cài đặt runtime mà ứng dụng yêu cầu). Nhiều runtime khác nhau có thể được "
+"cài đặt cùng lúc, bao gồm cả các phiên bản khác nhau của cùng một runtime."
+
+#: ../../basic-concepts.rst:20
+msgid ""
+"Runtimes are distribution agnostic and do not depend on particular "
+"distribution versions. This means that they provide a stable, cross-"
+"distribution base for applications, and allow applications to continue to "
+"work irrespective of operating system updates."
+msgstr ""
+"Runtime không phụ thuộc vào bản phân phối cũng như phiên bản cụ thể của bản "
+"phân phối. Điều này có nghĩa là chúng cung cấp một cơ sở phân phối chéo "
+"(cross-distribution) ổn định cho các ứng dụng, và cho phép các ứng dụng tiếp "
+"tục hoạt động bất kể các bản cập nhật hệ điều hành."
+
+#: ../../basic-concepts.rst:26
+msgid "Bundled libraries"
+msgstr "Thư viện gói kèm (Bundled library)"
+
+#: ../../basic-concepts.rst:28
+msgid ""
+"If an application requires any dependencies that aren't in its runtime, they "
+"can be bundled as part of the application. This gives application developers "
+"flexibility regarding the dependencies that they use, including using:"
+msgstr ""
+"Nếu một ứng dụng yêu cầu các dependency bất kỳ không có trong runtime của nó "
+"thì chúng có thể được gói kèm (bundled) như một phần của ứng dụng. Điều này "
+"mang lại cho các nhà phát triển ứng dụng sự linh hoạt về các dependency mà "
+"họ sử dụng, bao gồm việc dùng:"
+
+#: ../../basic-concepts.rst:32
+msgid "libraries that aren't available in a runtime"
+msgstr "các thư viện không có sẵn trong runtime"
+
+#: ../../basic-concepts.rst:33
+msgid "different versions of libraries from the ones that are in a runtime"
+msgstr "các phiên bản của thư viện khác với phiên bản trong runtime"
+
+#: ../../basic-concepts.rst:34
+msgid "patched versions of libraries"
+msgstr "phiên bản được vá (patched) của thư viện"
+
+#: ../../basic-concepts.rst:37
+msgid "Sandboxes"
+msgstr "Hộp cát (Sandbox)"
+
+#: ../../basic-concepts.rst:39
+msgid ""
+"With Flatpak, each application is built and run in an isolated environment, "
+"which is called the 'sandbox'. Each sandbox contains an application and its "
+"runtime. By default, the application can only access the contents of its "
+"sandbox. Access to user files, network, graphics sockets, subsystems on the "
+"bus and devices have to be explicitly granted. Access to other things, such "
+"as other processes, is deliberately not possible."
+msgstr ""
+"Với Flatpak, mỗi ứng dụng được xây dựng và chạy trong một môi trường biệt "
+"lập, được gọi là “hộp cát”. Mỗi hộp cát chứa một ứng dụng và runtime của nó. "
+"Theo mặc định, ứng dụng chỉ có thể truy cập nội dung trong hộp cát của nó. "
+"Quyền truy cập vào các tệp người dùng, mạng, các cổng cắm đồ họa (graphics "
+"socket), các hệ thống con (subsystem) trên bus và các thiết bị phải được cấp "
+"rõ ràng. Ứng dụng không được phép truy cập vào những thứ khác, chẳng hạn như "
+"các tiến trình (process) khác."
+
+#: ../../basic-concepts.rst:46
+msgid ""
+"By necessity, some resources that are inside the sandbox need to be exposed "
+"outside, to be used by the host system. These are known as 'exports', since "
+"they are files that are exported out of the sandbox, and include things like "
+"the application's ``.desktop`` file and icon."
+msgstr ""
+"Do cần thiết, một số tài nguyên bên trong hộp cát cần được đưa ra bên ngoài "
+"để hệ thống máy chủ sử dụng. Chúng được gọi là các 'exports' vì chúng là các "
+"tệp được xuất ra khỏi hộp cát, bao gồm những thứ như tệp ``.desktop`` và "
+"biểu tượng của ứng dụng."
+
+#: ../../basic-concepts.rst:52
+msgid "Portals"
+msgstr "Cổng (Portal)"
+
+#: ../../basic-concepts.rst:54
+msgid ""
+"Portals are a mechanism through which applications can interact with the "
+"host environment from within a sandbox. They give the ability to interact "
+"with data, files and services without the need to add sandbox permissions."
+msgstr ""
+"Cổng là một cơ chế qua đó các ứng dụng có thể tương tác với môi trường máy "
+"chủ từ bên trong hộp cát. Chúng cung cấp khả năng tương tác với dữ liệu, tệp "
+"và dịch vụ mà không cần thêm quyền cho hộp cát."
+
+#: ../../basic-concepts.rst:58
+msgid ""
+"Examples of capabilities that can be accessed through portals include "
+"opening files through a file chooser dialog, or printing. Interface toolkits "
+"can implement transparent support for portals, so access to resources "
+"outside of the sandbox will work securely and out of the box."
+msgstr ""
+"Ví dụ về các khả năng có thể được truy cập thông qua cổng bao gồm mở tệp "
+"thông qua hộp thoại chọn tệp (file chooser dialog) hoặc in. Các bộ công cụ "
+"giao diện (interface toolkit) có thể triển khai hỗ trợ minh bạch cho các "
+"cổng, và qua đó, quyền truy cập vào các tài nguyên bên ngoài hộp cát sẽ hoạt "
+"động an toàn và luôn có thể được sử dụng (work out of the box)."
+
+#: ../../basic-concepts.rst:63
+msgid ""
+"More information about portals can be found in :doc:`sandbox-permissions`."
+msgstr ""
+"Thông tin thêm về các cổng có thể được tìm thấy ở :doc:`sandbox-permissions`."
+
+#: ../../basic-concepts.rst:66
+msgid "Repositories"
+msgstr "Kho lưu trữ (Repository)"
+
+#: ../../basic-concepts.rst:68
+msgid ""
+"Flatpak applications and runtimes are typically stored and published using "
+"repositories, which behave very similarly to Git repositories. A Flatpak "
+"repository can contain a single object or multiple objects, and each object "
+"is versioned, which allows upgrading and even downgrading."
+msgstr ""
+"Các ứng dụng và Flatpak runtime thường được lưu trữ và phát hành bằng cách "
+"sử dụng các kho lưu trữ (repository), hoạt động rất giống với Git "
+"repository. Kho lưu trữ Flatpak có thể chứa một đối tượng (object) hoặc "
+"nhiều đối tượng, và mỗi đối tượng đều được phiên bản hóa (versioned), cho "
+"phép nâng cấp và thậm chí hạ cấp."
+
+#: ../../basic-concepts.rst:73
+msgid ""
+"Each system which is using Flatpak can be configured to access any number of "
+"remote repositories. Once a system has been configured to access a 'remote', "
+"the remote repository's content can be inspected and searched, and it can be "
+"used as the source of applications and runtimes."
+msgstr ""
+"Mỗi hệ thống sử dụng Flatpak có thể được cấu hình để truy cập một số lượng "
+"kho lưu trữ từ xa (remote repository) tùy ý. Sau khi hệ thống đã được cấu "
+"hình để truy cập một 'remote', nội dung của kho lưu trữ từ xa đó có thể được "
+"kiểm tra và tìm kiếm, đồng thời nó có thể làm nguồn của các ứng dụng và "
+"runtime."
+
+#: ../../basic-concepts.rst:78
+msgid ""
+"When an update is performed, new versions of installed applications and "
+"runtimes are downloaded from the relevant remotes. Like with Git, only the "
+"difference between versions is downloaded, which makes the process very "
+"efficient."
+msgstr ""
+"Khi thực hiện cập nhật, các phiên bản mới của các ứng dụng và runtime đã cài "
+"đặt sẽ được tải xuống từ các remote liên quan. Giống như Git, chỉ có phần "
+"thay đổi giữa các phiên bản được tải xuống, khiến quá trình này trở nên rất "
+"hiệu quả."
