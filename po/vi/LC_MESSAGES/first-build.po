@@ -1,0 +1,268 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024, Flatpak Team. Licensed under Creative Commons Attribution 4.0 International License.
+# This file is distributed under the same license as the Flatpak package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Flatpak\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-07 23:48+0700\n"
+"PO-Revision-Date: 2024-06-09 22:22+0700\n"
+"Last-Translator: Harry Mitchell <minhyh0987@gmail.com>\n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#: ../../first-build.rst:2
+msgid "Building your first Flatpak"
+msgstr "Xây dựng Flatpak đầu tiên của bạn"
+
+#: ../../first-build.rst:4
+msgid ""
+"This tutorial provides a quick introduction to building Flatpaks. In it, you "
+"will learn how to create a basic Flatpak application, which can be installed "
+"and run."
+msgstr ""
+"Hướng dẫn này giới thiệu nhanh về cách xây dựng (build) ứng dụng Flatpak. "
+"Trong đó, bạn sẽ học cách tạo một ứng dụng Flatpak cơ bản, có thể cài đặt và "
+"khởi chạy."
+
+#: ../../first-build.rst:8
+msgid ""
+"In order to complete this tutorial, you should have followed the `setup "
+"guide on flatpak.org <https://flatpak.org/setup/>`_. You also need to have "
+"installed ``flatpak-builder``, which is usually available from the same "
+"repository as the ``flatpak`` package (e.g. use ``apt`` or ``dnf``). You can "
+"also install it as a flatpak with ``flatpak install flathub org.flatpak."
+"Builder``."
+msgstr ""
+"Để hoàn thành hướng dẫn này, bạn đã phải làm theo `hướng dẫn thiết lập trên "
+"flatpak.org <https://flatpak.org/setup/>`_. Bạn cũng đã phải cài đặt "
+"``flatpak-builder``, thường có sẵn từ cùng kho lưu trữ (repository) với gói "
+"``flatpak`` (ví dụ: dùng ``apt`` hoặc ``dnf``). Bạn cũng có thể cài đặt nó "
+"dưới dạng flatpak với ``flatpak install flathub org.flatpak.Builder``."
+
+#: ../../first-build.rst:15
+msgid "1. Install a runtime and the matching SDK"
+msgstr "1. Cài đặt runtime và SDK ăn khớp"
+
+#: ../../first-build.rst:17
+msgid ""
+"Flatpak requires every app to specify a runtime that it uses for its basic "
+"dependencies. Each runtime has a matching SDK (Software Development Kit), "
+"which contains all the things that are in the runtime, plus headers and "
+"development tools. This SDK is required to build apps for the runtime."
+msgstr ""
+"Flatpak yêu cầu mỗi ứng dụng phải chỉ rõ runtime mà nó sử dụng cho các "
+"dependency cơ bản của nó. Mỗi runtime có một SDK (bộ công cụ phát triển phần "
+"mềm) ăn khớp, chứa tất cả những thứ có trong runtime, cùng với các header và "
+"các công cụ phát triển (development tool). SDK này là cần thiết để xây dựng "
+"ứng dụng cho runtime của nó."
+
+#: ../../first-build.rst:22
+msgid ""
+"In this tutorial we will use the Freedesktop 23.08 runtime and SDK. To "
+"install these, run::"
+msgstr ""
+"Trong hướng dẫn này, ta sẽ sử dụng runtime và SDK là Freedesktop 23.08. Để "
+"cài đặt chúng, hãy chạy::"
+
+#: ../../first-build.rst:28
+msgid "2. Create the app"
+msgstr "2. Tạo ứng dụng"
+
+#: ../../first-build.rst:30
+msgid ""
+"The app that is going to be created for this tutorial is a simple script. To "
+"create it, copy the following::"
+msgstr ""
+"Ứng dụng sẽ được tạo trong hướng dẫn này là một đoạn script đơn giản. Để tạo "
+"nó, sao chép đoạn sau::"
+
+#: ../../first-build.rst:36
+msgid "Now paste this into an empty file and save it as ``hello.sh``."
+msgstr "Hãy dán nó này vào một tệp trống và lưu nó dưới tên ``hello.sh``."
+
+#: ../../first-build.rst:39
+msgid "3. Add a manifest"
+msgstr "3. Thêm tệp kê khai (manifest)"
+
+#: ../../first-build.rst:41
+msgid ""
+"Each Flatpak is built using a manifest file which provides basic information "
+"about the application and instructions for how it is to be built. To add a "
+"manifest to the hello world app, add the following to an empty file:"
+msgstr ""
+"Mỗi Flatpak được xây dựng bằng một tệp kê khai cung cấp thông tin cơ bản về "
+"ứng dụng và các chỉ dẫn về cách xây dựng ứng dụng. Để thêm tệp kê khai vào "
+"ứng dụng hello world, hãy thêm phần sau vào một tệp trống:"
+
+#: ../../first-build.rst:61
+msgid ""
+"Now save the file alongside ``hello.sh`` and call it ``org.flatpak.Hello."
+"yml``."
+msgstr ""
+"Bây giờ hãy lưu tệp bên cạnh ``hello.sh`` và đặt nó là ``org.flatpak.Hello."
+"yml``."
+
+#: ../../first-build.rst:64
+msgid ""
+"In a more complex application, the manifest would list multiple modules. The "
+"last one would typically be the application itself, and the earlier ones "
+"would be dependencies that are bundled with the app because they are not "
+"part of the runtime."
+msgstr ""
+"Trong một ứng dụng phức tạp hơn, tệp kê khai sẽ liệt kê nhiều mô-đun "
+"(module). Cái cuối cùng thường chính là ứng dụng và các cái trước đó sẽ là "
+"các dependency được đóng gói kèm (bundled) với ứng dụng vì chúng không phải "
+"là một phần của runtime."
+
+#: ../../first-build.rst:70
+msgid "4. Build the application"
+msgstr "4. Xây dựng ứng dụng"
+
+#: ../../first-build.rst:72
+msgid ""
+"Now that the app has a manifest, ``flatpak-builder`` can be used to build "
+"it. This is done by specifying the manifest file and a target directory::"
+msgstr ""
+"Giờ đây, ứng dụng đã có tệp kê khai, ``flatpak-builder`` có thể được sử dụng "
+"để xây dựng nó. Điều này được thực hiện bằng cách chỉ rõ tệp kê khai và thư "
+"mục đích (target directory)::"
+
+#: ../../first-build.rst:77
+msgid ""
+"This command will build each module that is listed in the manifest and "
+"install it to the ``/app`` subdirectory, inside the ``build-dir`` directory."
+msgstr ""
+"Lệnh này sẽ xây dựng từng mô-đun được liệt kê trong tệp kê khai và cài đặt "
+"nó vào thư mục con ``/app`` nằm bên trong thư mục ``build-dir``."
+
+#: ../../first-build.rst:81
+msgid "5. Test the build"
+msgstr "5. Kiểm thử bản dựng"
+
+#: ../../first-build.rst:83
+msgid "To verify that the build was successful, run the following::"
+msgstr ""
+"Để xác minh rằng quá trình xây dựng đã thành công, hãy chạy các lệnh sau::"
+
+#: ../../first-build.rst:88
+msgid ""
+"This second time we passed in ``--force-clean``, which means that the "
+"previously created ``build-dir`` directory was deleted before the new build "
+"was started."
+msgstr ""
+"Lần thứ hai này ta sử dụng ``--force-clean``, xóa thư mục ``build-dir`` đã "
+"được tạo trước đó trước khi bắt đầu quá trình xây dựng mới."
+
+#: ../../first-build.rst:92
+msgid "Congratulations, you've made an app!"
+msgstr "Xin chúc mừng, bạn đã làm ra một ứng dụng!"
+
+#: ../../first-build.rst:95
+msgid "6. Put the app in a repository"
+msgstr "6. Đặt ứng dụng vào kho lưu trữ (repository)"
+
+#: ../../first-build.rst:97
+msgid ""
+"If you want to share the application you can put it in a repository. This is "
+"done by passing the ``--repo`` argument to ``flatpak-builder``::"
+msgstr ""
+"Nếu bạn muốn chia sẻ ứng dụng, bạn có thể đặt nó vào một kho lưu trữ. Điều "
+"này được thực hiện bằng cách chuyển đối số (argument) ``--repo`` tới "
+"``flatpak-builder``::"
+
+#: ../../first-build.rst:103
+msgid ""
+"This does the build again, and at the end exports the result to a local "
+"directory called ``repo``. Note that ``flatpak-builder`` keeps a cache of "
+"previous builds in the ``.flatpak-builder`` subdirectory, so doing a second "
+"build like this is very fast."
+msgstr ""
+"Lệnh này thực hiện lại quá trình xây dựng, và cuối cùng thì xuất kết quả "
+"sang một thư mục cục bộ có tên `repo`. Lưu ý rằng ``flatpak-builder`` giữ "
+"một bộ nhớ đệm (cache) của các bản dựng trước trong thư mục con ``.flatpak-"
+"builder``, vì vậy việc thực hiện bản dựng thứ hai như thế này rất nhanh."
+
+#: ../../first-build.rst:108
+msgid ""
+"In order for your application to show up in application stores while testing "
+"with a local repository, you might have to run ``flatpak build-update-repo "
+"repo``."
+msgstr ""
+"Để ứng dụng của bạn xuất hiện trên các cửa hàng ứng dụng trong khi thử "
+"nghiệm với kho lưu trữ cục bộ, bạn có thể phải chạy ``flatpak build-update-"
+"repo repo``."
+
+#: ../../first-build.rst:111
+msgid ""
+"For more information how to publish to application stores see `MetaInfo "
+"files <https://docs.flatpak.org/en/latest/conventions.html#metainfo-files>`_."
+msgstr ""
+"Để biết thêm thông tin về cách phát hành lên các cửa hàng ứng dụng, `Tệp "
+"MetaInfo<https://docs.flatpak.org/vi/latest/conventions.html#metainfo-"
+"files>`_."
+
+#: ../../first-build.rst:114
+msgid "7. Install the app"
+msgstr "7. Cài đặt ứng dụng"
+
+#: ../../first-build.rst:116
+msgid ""
+"Now we're ready to add the repository that was just created and install the "
+"app. This is done with two commands::"
+msgstr ""
+"Bây giờ ta đã sẵn sàng thêm kho lưu trữ vừa được tạo và cài đặt ứng dụng. "
+"Việc này được thực hiện bằng hai lệnh::"
+
+#: ../../first-build.rst:122
+msgid ""
+"The first command adds the repository that was created in the previous step. "
+"The second command installs the app from the repository."
+msgstr ""
+"Lệnh đầu tiên thêm kho lưu trữ đã được tạo ở bước trước. Lệnh thứ hai cài "
+"đặt ứng dụng từ kho lưu trữ."
+
+#: ../../first-build.rst:125
+msgid ""
+"Both these commands use the ``--user`` argument, which means that the "
+"repository and the app are added per-user rather than system-wide. This is "
+"useful for testing."
+msgstr ""
+"Cả hai lệnh này đều sử dụng argument ``--user``, có nghĩa là kho lưu trữ và "
+"ứng dụng được thêm vào cho người dùng thay vì toàn hệ thống. Điều này rất "
+"hữu ích cho việc thử nghiệm."
+
+#: ../../first-build.rst:129
+msgid ""
+"Note that the repository was added with ``--no-gpg-verify``, since a GPG key "
+"wasn't specified when the app was built. This is fine for testing, but for "
+"official repositories you should sign them with a private GPG key."
+msgstr ""
+"Lưu ý rằng kho lưu trữ đã được thêm kèm với ``--no-gpg-verify``, vì khóa GPG "
+"không được chỉ định khi ứng dụng được tạo. Điều này ổn cho việc thử nghiệm, "
+"nhưng đối với các kho lưu trữ chính thức, bạn nên kí chúng bằng một khóa GPG "
+"riêng tư."
+
+#: ../../first-build.rst:134
+msgid "8. Run the app"
+msgstr "8. Khởi chạy ứng dụng"
+
+#: ../../first-build.rst:136
+msgid ""
+"All that's left is to try the app. This can be done with the following "
+"command::"
+msgstr ""
+"Tất cả những gì còn lại là dùng thử ứng dụng, thực hiện bằng lệnh sau::"
+
+#: ../../first-build.rst:141
+msgid "This runs the app, so that it prints 'Hello world, from a sandbox'."
+msgstr ""
+"Thao tác này sẽ khởi chạy ứng dụng để nó in ra dòng chữ 'Hello world, from a "
+"sandbox'."
