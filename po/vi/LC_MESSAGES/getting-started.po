@@ -1,0 +1,44 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024, Flatpak Team. Licensed under Creative Commons Attribution 4.0 International License.
+# This file is distributed under the same license as the Flatpak package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Flatpak\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-07 23:48+0700\n"
+"PO-Revision-Date: 2024-06-09 22:36+0700\n"
+"Last-Translator: Harry Mitchell <minhyh0987@gmail.com>\n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#: ../../getting-started.rst:2
+msgid "Getting Started"
+msgstr "Bắt đầu"
+
+#: ../../getting-started.rst:4
+msgid ""
+"This section includes an introduction to basic Flatpak concepts, a guide on "
+"how to use the Flatpak command line interface, and a tutorial for building a "
+"simple application."
+msgstr ""
+"Phần này bao gồm giới thiệu về các khái niệm Flatpak cơ bản, hướng dẫn cách "
+"sử dụng giao diện dòng lệnh Flatpak, và hướng dẫn xây dựng một ứng dụng đơn "
+"giản."
+
+#: ../../getting-started.rst:8
+msgid ""
+"To complete this section, Flatpak should have been installed and the Flathub "
+"repository should have been enabled. The Flatpak website provides "
+"`instructions for how to do this with a range of distributions <https://"
+"flatpak.org/setup/>`_."
+msgstr ""
+"Để hoàn thành phần này, Flatpak phải đã được cài đặt và kho lưu trữ Flathub "
+"phải đã được kích hoạt. Trang web của Flatpak cung cấp `hướng dẫn cách thực "
+"hiện việc này với nhiều bản phân phối <https://flatpak.org/setup/>`_."
