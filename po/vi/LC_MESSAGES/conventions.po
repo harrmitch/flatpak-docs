@@ -1,0 +1,614 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024, Flatpak Team. Licensed under Creative Commons Attribution 4.0 International License.
+# This file is distributed under the same license as the Flatpak package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Flatpak\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-09 23:56+0700\n"
+"PO-Revision-Date: 2024-06-11 14:25+0700\n"
+"Last-Translator: Harry Mitchell <minhyh0987@gmail.com>\n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#: ../../conventions.rst:2
+msgid "Requirements & Conventions"
+msgstr "Các yêu cầu & quy ước"
+
+#: ../../conventions.rst:4
+msgid ""
+"Flatpak deliberately makes as few requirements of applications as possible. "
+"However, a small number of standard Linux desktop conventions are expected, "
+"primarily to ensure that applications integrate with Linux desktops and app "
+"centers. Developers might also encounter a small number of Linux technical "
+"conventions."
+msgstr ""
+"Flatpak được thiết kế để đưa ra ít yêu cầu cho các ứng dụng nhất có thể. Tuy "
+"nhiên, có một số lượng nhỏ các quy ước tiêu chuẩn của Linux desktop cần được "
+"tuân theo, chủ yếu là để đảm bảo các ứng dụng tích hợp với các Linux desktop "
+"và các kho ứng dụng (app center). Các nhà phát triển cũng có thể bắt gặp một "
+"số quy ước kĩ thuật của Linux."
+
+#: ../../conventions.rst:10
+msgid ""
+"Information on further desktop integration options can be found in :doc:"
+"`desktop-integration`."
+msgstr ""
+"Thông tin thêm về các tùy chọn tích hợp desktop có thể được tìm thấy ở :doc:"
+"`desktop-integration`."
+
+#: ../../conventions.rst:14
+msgid "Expected Standards"
+msgstr "Các tiêu chuẩn cần tuân theo (Expected Standards)"
+
+#: ../../conventions.rst:16
+msgid ""
+"Applications that use Flatpak are generally expected to comply with the "
+"following standards. Applications that have previously targeted the Linux "
+"desktop will typically need to make very few (if any) changes to do this."
+msgstr ""
+"Các ứng dụng sử dụng Flatpak thường phải tuân thủ các tiêu chuẩn sau. Các "
+"ứng dụng trước đây nhắm mục tiêu đến desktop Linux thường sẽ cần thực hiện "
+"rất ít thay đổi (nếu có) để thực hiện việc này."
+
+#: ../../conventions.rst:21
+msgid "Application IDs"
+msgstr "Định danh ứng dụng (Application ID)"
+
+#: ../../conventions.rst:23
+msgid ""
+"As described in :doc:`using-flatpak`, Flatpak requires each application to "
+"have a unique identifier, which has a form such as ``org.example.app``."
+msgstr ""
+"Như được mô tả trong :doc:`using-flatpak`, Flatpak yêu cầu mỗi ứng dụng phải "
+"có một định danh duy nhất, có dạng như ``org.example.app``."
+
+#: ../../conventions.rst:26
+msgid ""
+"The format is in reverse-DNS style so the first section should be a domain "
+"controlled by the project and the trailing section represents the specific "
+"project. There are some exceptions to this, such as extensions using the "
+"base application-id of the project they extend rather than their own."
+msgstr ""
+"Định dạng theo kiểu DNS ngược (reverse-DNS) nên phần đầu tiên phải là tên "
+"miền do dự án kiểm soát và phần cuối đại diện cho dự án cụ thể. Có một số "
+"trường hợp ngoại lệ đối với điều này, chẳng hạn như các phần mở rộng "
+"(extension) sử dụng định danh ứng dụng cơ sở (base application-id) của dự án "
+"mà chúng mở rộng thay vì của chính chúng."
+
+#: ../../conventions.rst:31
+msgid ""
+"As will be seen below and in future sections, this ID is expected to be used "
+"in a number of places. Developers must follow the standard `D-Bus naming "
+"conventions for bus names <https://dbus.freedesktop.org/doc/dbus-"
+"specification.html#message-protocol-names>`_ when creating their own IDs. "
+"This format is already recommended by the `Desktop File specification "
+"<https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-"
+"spec-latest.html#file-naming>`_ and `Appstream specification <https://www."
+"freedesktop.org/software/appstream/docs/chap-Metadata.html#sect-Metadata-"
+"GenericComponent>`_ also."
+msgstr ""
+"Như ta sẽ thấy bên dưới và trong các phần sau, định danh này sẽ được sử dụng "
+"ở một số nơi. Các nhà phát triển phải tuân theo `quy ước đặt tên tiêu chuẩn "
+"cho bus của D-Bus (D-Bus naming conventions for bus names) <https://dbus."
+"freedesktop.org/doc/dbus-specuation.html#message-protocol-names>`_ khi tạo "
+"định danh của riêng họ. Định dạng này cũng đã được đề xuất bởi `Desktop File "
+"specification <https://specations.freedesktop.org/desktop-entry-spec/desktop-"
+"entry-spec-latest.html#file-naming>`_ và `Appstream specification <https ://"
+"www.freedesktop.org/software/appstream/docs/chap-Metadata.html#sect-Metadata-"
+"GenericComponent>`_."
+
+#: ../../conventions.rst:41
+msgid "For some practical examples of bad IDs"
+msgstr "Một số ví dụ thực tế về định danh xấu"
+
+#: ../../conventions.rst:43
+msgid "``org.example.desktop``"
+msgstr "``org.example.desktop``"
+
+#: ../../conventions.rst:45
+msgid ""
+"This is a bad ID because the Appstream standard for legacy reasons treats "
+"IDs ending with ``.desktop`` as a special case causing inconsistency. For "
+"this same reason, ``.Desktop`` suffixes should not be used for newly named "
+"applications. Don't hesitate to repeat the application name even if it "
+"already is part of the domain name section of the identifier (eg. ``org."
+"example.Example``)."
+msgstr ""
+"Đây là một định danh xấu bởi tiêu chuẩn Appstream vì các lý do cũ coi các "
+"định danh kết thúc bằng ``.desktop`` là trường hợp đặc biệt gây ra sự không "
+"nhất quán. Vì lý do tương tự, không nên sử dụng hậu tố ``.Desktop`` cho các "
+"ứng dụng mới được đặt tên. Đừng ngần ngại lặp lại tên ứng dụng ngay cả khi "
+"nó đã là một phần của phần tên miền của mã định danh (ví dụ: ``org.example."
+"Example``)."
+
+#: ../../conventions.rst:50
+msgid "``io.github.foo``"
+msgstr "``io.github.foo``"
+
+#: ../../conventions.rst:52
+msgid ""
+"This is problematic because while ``foo.github.io`` may be unique to your "
+"project, it does not include a project-specific identifier. This may cause "
+"issues if another project creates ``io.github.foo-bar`` which should be its "
+"own namespace but areas of ``flatpak`` may treat them similar. A better ID "
+"would be ``io.github.foo.foo`` even if it is redundant."
+msgstr ""
+"Nó khá là rắc rối vì mặc dù ``foo.github.io`` có thể là duy nhất cho dự án "
+"của bạn, nhưng nó không bao gồm mã định danh dành riêng cho dự án. Điều này "
+"có thể gây ra sự cố nếu một dự án khác tạo ``io.github.foo-bar`` (­­­­­đáng lẽ ra "
+"phải nằm trong là namespace riêng của nó) thì `` flatpak`` có thể xử lý "
+"chúng tương tự. Định danh tốt hơn sẽ là ``io.github.foo.foo`` ngay cả khi nó "
+"dư thừa."
+
+#: ../../conventions.rst:57
+msgid "``org.example-site.foo``"
+msgstr "``org.example-site.foo``"
+
+#: ../../conventions.rst:59
+msgid ""
+"This ID is not valid according to the DBus specification as a dash ``-`` "
+"isn't allowed except on the last component. You should replace ``-`` with an "
+"undercore ``_`` and therefore, use ``org.example_site.Foo`` instead."
+msgstr ""
+"Định danh này không hợp lệ theo DBus specification vì không được phép có dấu "
+"gạch ngang ``-`` ngoại trừ trong thành phần cuối cùng. Bạn nên thay thế ``-"
+"`` bằng dấu gạch dưới ``_`` và do đó, hãy sử dụng ``org.example_site.Foo`` "
+"thay thế."
+
+#: ../../conventions.rst:64
+msgid "``com.github.foo.bar`` or ``com.gitlab.foo.bar``"
+msgstr "``com.github.foo.bar`` hoặc ``com.gitlab.foo.bar``"
+
+#: ../../conventions.rst:66
+msgid ""
+"While a project may be hosted on GitHub or GitLab it does not have any "
+"control over the ``github.com`` or ``gitlab.com`` domain. Instead you should "
+"use ``io.github`` or ``io.gitlab`` as shown above."
+msgstr ""
+"Mặc dù một dự án có thể được lưu trữ trên GitHub hoặc GitLab nhưng dự án đó "
+"không có bất kỳ quyền kiểm soát nào đối với tên miền ``github.com`` hoặc "
+"``gitlab.com``. Thay vào đó bạn nên sử dụng ``io.github`` hoặc ``io.gitlab`` "
+"như ở trên."
+
+#: ../../conventions.rst:71
+msgid "``Org.Example.App``"
+msgstr "``Org.Example.App``"
+
+#: ../../conventions.rst:73
+msgid ""
+"The TLD portion of the ID must be lowercased and while not required the "
+"application portion is recommended to be lowercase as well. Instead you "
+"should use ``org.example.app``."
+msgstr ""
+"Phần TLD (tên miền cấp cao nhất) của định danh phải được viết thường và, mặc "
+"dù không bắt buộc, nhưng phần ứng dụng cũng nên viết thường. Để thay thế nó, "
+"bạn nên sử dụng ``org.example.app``."
+
+#: ../../conventions.rst:78
+msgid "MetaInfo files"
+msgstr "Tệp MetaInfo"
+
+#: ../../conventions.rst:80
+msgid ""
+"MetaInfo files provide metadata about applications, which is used by "
+"application stores (such as Flathub, GNOME Software and KDE Discover)."
+msgstr ""
+"Các tệp MetaInfo cung cấp siêu dữ liệu (metadata) về ứng dụng, được sử dụng "
+"bởi các cửa hàng ứng dụng (chẳng hạn như Flathub, GNOME Software và KDE "
+"Discover)."
+
+#: ../../conventions.rst:84
+msgid ""
+"The `Freedesktop AppStream specification <https://www.freedesktop.org/"
+"software/appstream/docs/>`_ provides a complete reference for providing "
+"MetaInfo. You can use the online `AppStream MetaInfo Creator <https://www."
+"freedesktop.org/software/appstream/metainfocreator/>`_ to generate a basic "
+"file."
+msgstr ""
+"`Freedesktop AppStream specification <https://www.freedesktop.org/software/"
+"appstream/docs/>`_ cung cấp tài liệu tham khảo đầy đủ về MetaInfo. Bạn có "
+"thể sử dụng `AppStream MetaInfo Creator <https://www.freedesktop.org/"
+"software/appstream/metainfocreator/>`_ trực tuyến để tạo một tệp cơ bản."
+
+#: ../../conventions.rst:90
+msgid ""
+"MetaInfo files should be named with the application ID and the ``.metainfo."
+"xml`` file extension, and should be placed in ``/app/share/metainfo/``. For "
+"example::"
+msgstr ""
+"Các tệp MetaInfo phải được đặt tên bằng định danh ứng dụng kèm phần mở rộng "
+"tập tin (file extension) là ``.metainfo.xml``, và phải được đặt trong ``/app/"
+"share/metainfo/``. Ví dụ::"
+
+#: ../../conventions.rst:95
+msgid ""
+"A legacy convention of having the ``.appdata.xml`` installed in ``/app/share/"
+"appdata`` is also accepted as well, and ``flatpak-builder`` will check "
+"either directory with either extension."
+msgstr ""
+"Quy ước cũ về việc đặt ``.appdata.xml`` trong ``/app/share/appdata`` cũng "
+"được chấp nhận, ``flatpak-builder`` sẽ kiểm tra một trong hai thư mục để tìm "
+"tệp có phần mở rộng tập tin tương ứng."
+
+#: ../../conventions.rst:99
+msgid ""
+"The ``appstreamcli validate --explain`` command can be used to check "
+"MetaInfo files for errors."
+msgstr ""
+"Lệnh ``appstreamcli validate --explain`` có thể được sử dụng để kiểm tra lỗi "
+"trong các tệp MetaInfo."
+
+#: ../../conventions.rst:103
+msgid "Application icons"
+msgstr "Biểu tượng ứng dụng"
+
+#: ../../conventions.rst:105
+msgid ""
+"Applications are expected to provide an application icon, which is used for "
+"their application launcher. These icons should be provided in accordance "
+"with the `Freedesktop icon specification <https://specifications.freedesktop."
+"org/icon-theme-spec/icon-theme-spec-latest.html>`_."
+msgstr ""
+"Các ứng dụng sẽ phải cung cấp biểu tượng ứng dụng để được sử dụng cho trình "
+"khởi chạy (application launcher) của chúng. Các biểu tượng này phải được "
+"cung cấp theo `Freedesktop icon specification <https://specutions."
+"freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html>`_."
+
+#: ../../conventions.rst:110
+msgid ""
+"Icons should be named with the application's ID, be in either PNG or SVG "
+"format, and must be placed in the standard location::"
+msgstr ""
+"Các biểu tượng nên được đặt tên bằng định danh của ứng dụng, ở định dạng PNG "
+"hoặc SVG, và phải được đặt ở vị trí tiêu chuẩn::"
+
+#: ../../conventions.rst:115
+msgid ""
+"For example, the path to the 128✕128px version of GNOME Dictionary's icon "
+"is::"
+msgstr ""
+"Ví dụ: đường dẫn đến bản 128✕128px của biểu tượng GNOME Dictionary là::"
+
+#: ../../conventions.rst:120
+msgid ""
+"Icons must be square shaped, ie their width and height must be the same. The "
+"maximum size allowed by the specification is 512x512px. SVG icons are of "
+"size ``scalable``::"
+msgstr ""
+"Các biểu tượng phải có hình vuông, nói cách khác chiều rộng và chiều cao của "
+"chúng phải giống nhau. Kích thước tối đa được specification cho phép là "
+"512x512px. Các biểu tượng SVG có kích thước ``scalable``::"
+
+#: ../../conventions.rst:126
+msgid ""
+"Flatpak will export the following icon name patterns: ``$FLATPAK_ID, "
+"$FLATPAK_ID.foo, $FLATPAK_ID-foo``. They may end with an extension suffix "
+"like ``.png, .svg``. Exported icons can be found in the ``icons`` subfolder "
+"of ``$HOME/.local/share/flatpak/exports/share`` or ``/var/lib/flatpak/"
+"exports/share`` depending on system or user install."
+msgstr ""
+"Flatpak sẽ xuất các biểu tượng có mẫu tên như sau: ``$FLATPAK_ID, "
+"$FLATPAK_ID.foo, $FLATPAK_ID-foo``. Chúng có thể kết thúc bằng phần mở rộng "
+"tập tin như ``.png, .svg``. Các biểu tượng đã xuất có thể được tìm thấy "
+"trong thư mục con ``icons`` nằm trong ``$HOME/.local/share/flatpak/exports/"
+"share`` hoặc ``/var/lib/flatpak/exports/share`` tùy vào ứng dụng được cài "
+"cho toàn hệ thống hay chỉ cho người dùng."
+
+#: ../../conventions.rst:132
+msgid ""
+"The distribution usually appends those paths to ``$XDG_DATA_DIRS`` on host "
+"when installing the ``flatpak`` package. Unless an icon is exported by "
+"Flatpak, host applications cannot access it."
+msgstr ""
+"Bản phân phối thường thêm các đường dẫn đó vào ``$XDG_DATA_DIRS`` trên máy "
+"chủ khi cài đặt gói ``flatpak``. Trừ khi biểu tượng được Flatpak xuất ra, "
+"các ứng dụng máy chủ không thể truy cập nó."
+
+#: ../../conventions.rst:137
+msgid "Desktop files"
+msgstr "Tệp desktop"
+
+#: ../../conventions.rst:139
+msgid ""
+"Desktop files are used to provide the desktop environment with information "
+"about each application. The `Freedesktop specification <https://"
+"specifications.freedesktop.org/desktop-entry-spec/latest/>`_ provides a "
+"complete reference for writing desktop files, and `additional information "
+"about them <https://wiki.archlinux.org/title/desktop_entries>`_ is available "
+"online."
+msgstr ""
+"Các tệp desktop được sử dụng để cung cấp cho môi trường desktop thông tin về "
+"từng ứng dụng. `Freedesktop specification <https://specifications."
+"freedesktop.org/desktop-entry-spec/latest/>`_ cung cấp tài liệu tham khảo "
+"đầy đủ để viết các tệp desktop và `các thông tin khác về chúng <https://wiki."
+"archlinux.org/title/desktop_entries>`_ có sẵn trực tuyến."
+
+#: ../../conventions.rst:146
+msgid ""
+"Desktop files should be named with the application's ID, followed by the ``."
+"desktop`` file extension, and should be placed in ``/app/share/applications/"
+"``. For example::"
+msgstr ""
+"Các tệp desktop nên được đặt tên bằng định danh của ứng dụng, theo sau là "
+"phần mở rộng tệp ``.desktop`` và nên được đặt trong ``/app/share/"
+"applications/``. Chẳng hạn::"
+
+#: ../../conventions.rst:152
+msgid ""
+"A minimal desktop file should contain at least the application's *name*, "
+"*exec* command, *type*, *icon* name and *categories*::"
+msgstr ""
+"Một tệp desktop tối thiểu phải chứa ít nhất *name* (tên), lệnh *exec* (khởi "
+"chạy), *type*, tên *icon* (biểu tượng) và *categories* (các danh mục) của "
+"ứng dụng::"
+
+#: ../../conventions.rst:162
+msgid ""
+"The ``desktop-file-validate`` command can be used to check for errors in "
+"desktop files."
+msgstr ""
+"Lệnh ``desktop-file-validate`` có thể được sử dụng để kiểm tra lỗi trong các "
+"tệp desktop."
+
+#: ../../conventions.rst:165
+msgid ""
+"The ``Exec`` key of the desktop files is rewritten by Flatpak  when "
+"installing an app. The original value of the key becomes the value of the "
+"``--command`` argument like so::"
+msgstr ""
+"Khóa ``Exec`` của các tệp desktop được Flatpak viết lại khi cài đặt ứng "
+"dụng. Giá trị ban đầu của khóa trở thành giá trị của đối số (argument) ``--"
+"command`` như sau::"
+
+#: ../../conventions.rst:171
+msgid ""
+"Flatpak will export the following desktop filename patterns: ``$FLATPAK_ID."
+"desktop, $FLATPAK_ID.foo.desktop, $FLATPAK_ID-foo.desktop``. Exported "
+"desktop files can be found in the ``applications`` subfolder of ``$HOME/."
+"local/share/flatpak/exports/share`` or ``/var/lib/flatpak/exports/share`` "
+"depending on system or user install."
+msgstr ""
+"Flatpak sẽ xuất các tệp desktop có mẫu tên như sau: ``$FLATPAK_ID.desktop, "
+"$FLATPAK_ID.foo.desktop, $FLATPAK_ID-foo.desktop``. Các tệp desktop đã xuất "
+"có thể được tìm thấy trong thư mục con ``applications`` nằm trong ``$HOME/."
+"local/share/flatpak/exports/share`` hoặc ``/var/lib/flatpak/exports/share`` "
+"tùy vào ứng dụng được cài cho toàn hệ thống hay chỉ cho người dùng."
+
+#: ../../conventions.rst:178
+msgid ""
+"The distribution usually appends those paths to ``$XDG_DATA_DIRS`` on host "
+"when installing the ``flatpak`` package. Unless a desktop file is exported "
+"by Flatpak, host applications cannot access it."
+msgstr ""
+"Bản phân phối thường thêm các đường dẫn đó vào ``$XDG_DATA_DIRS`` trên máy "
+"chủ khi cài đặt gói ``flatpak``.Trừ khi tệp desktop được Flatpak xuất ra, "
+"các ứng dụng máy chủ không thể truy cập nó."
+
+#: ../../conventions.rst:183
+msgid "Technical conventions"
+msgstr "Các quy ước kĩ thuật"
+
+#: ../../conventions.rst:185
+msgid ""
+"The following are standard technical conventions used by Flatpak and Linux "
+"desktops. Those with Linux experience will likely already be aware of them. "
+"However, developers who are new to Linux might find some of this information "
+"useful."
+msgstr ""
+"Sau đây là các quy ước kĩ thuật tiêu chuẩn được sử dụng bởi Flatpak và Linux "
+"desktop. Những người có kinh nghiệm với Linux có thể đã biết về chúng. Tuy "
+"nhiên, các nhà phát triển mới sử dụng Linux có thể thấy một số thông tin này "
+"hữu ích."
+
+#: ../../conventions.rst:191
+msgid "D-Bus"
+msgstr "D-Bus"
+
+#: ../../conventions.rst:193
+msgid ""
+"D-Bus is the standard IPC framework used on Linux desktops. A lot of "
+"applications won't need to use it, but it is supported by Flatpak should it "
+"be required."
+msgstr ""
+"D-Bus là IPC framework tiêu chuẩn được sử dụng trên Linux desktop. Rất nhiều "
+"ứng dụng sẽ không cần sử dụng nó, nhưng nó được hỗ trợ bởi Flatpak nếu được "
+"yêu cầu."
+
+#: ../../conventions.rst:197
+msgid ""
+"D-Bus can be used for application launching and communicating with some "
+"system services. Applications can also provide their own D-Bus services "
+"(when doing this, the D-Bus service name is expected to be the same as the "
+"application ID)."
+msgstr ""
+"D-Bus có thể được sử dụng để khởi chạy ứng dụng và giao tiếp với một số dịch "
+"vụ hệ thống. Các ứng dụng cũng có thể cung cấp các dịch vụ D-Bus của riêng "
+"họ (khi thực hiện việc này, tên dịch vụ D-Bus nên giống với định danh ứng "
+"dụng)."
+
+#: ../../conventions.rst:202
+msgid "Filesystem layout"
+msgstr "Bố cục hệ thống tệp (Filesystem layout)"
+
+#: ../../conventions.rst:204
+msgid ""
+"Each Flatpak sandbox, which is the environment in which an application is "
+"run, contains the filesystem of the application's runtime. This follows "
+"`standard Linux filesystem conventions <https://en.wikipedia.org/wiki/"
+"Filesystem_Hierarchy_Standard>`_."
+msgstr ""
+"Mỗi Flatpak sandbox (hộp cát), hay chính là môi trường mà một ứng dụng được "
+"chạy, chứa hệ thống tệp của runtime của ứng dụng. Nó tuân theo `các quy ước "
+"hệ thống tệp Linux tiêu chuẩn <https://en.wikipedia.org/wiki/"
+"Filesystem_Hierarchy_Standard>`_."
+
+#: ../../conventions.rst:209
+msgid ""
+"For example, the root of the sandbox contains the ``/etc`` directory for "
+"configuration files and ``/usr`` for multi-user utilities and applications. "
+"In addition to this, each sandbox contains a top-level ``/app`` directory, "
+"which is where the application's own files are located."
+msgstr ""
+"Ví dụ: gốc (root) của hộp cát chứa thư mục ``/etc`` cho các tệp cấu hình và "
+"``/usr`` cho các tiện ích và ứng dụng đa người dùng. Thêm vào đó, mỗi hộp "
+"cát chứa một thư mục ``/ app`` cấp cao nhất, đây là nơi chứa các tệp riêng "
+"của ứng dụng."
+
+#: ../../conventions.rst:215
+msgid "XDG base directories"
+msgstr "Các thư mục cơ sở XDG (XDG base directories)"
+
+#: ../../conventions.rst:217
+msgid ""
+"`XDG base directories <https://specifications.freedesktop.org/basedir-spec/"
+"basedir-spec-latest.html>`_ are standard locations for user-specific "
+"application data. Popular toolkits provide convenience functions for "
+"accessing XDG base directories. These include:"
+msgstr ""
+"'Thư mục cơ sở XDG <https://specifications.freedesktop.org/basedir-spec/"
+"basedir-spec-latest.html>`_ là các vị trí tiêu chuẩn để đặt dữ liệu ứng dụng "
+"riêng cho mỗi người dùng. Các bộ công cụ (toolkit) phổ biến cung cấp các hàm "
+"tiện lợi (convenience function) để truy cập các thư mục cơ sở XDG. Chúng bao "
+"gồm:"
+
+#: ../../conventions.rst:222
+msgid "Electron: XDG base directories can be accessed with ``app.getPath``"
+msgstr ""
+"Electron: Các thư mục cơ sở XDG có thể được truy cập bằng ``app.getPath``"
+
+#: ../../conventions.rst:223
+msgid ""
+"Glib: provides access to the XDG base directories through the "
+"``g_get_user_cache_dir ()``, ``g_get_user_data_dir ()``, "
+"``g_get_user_config_dir ()`` functions"
+msgstr ""
+"Glib: cung cấp quyền truy cập vào các thư mục cơ sở XDG thông qua các hàm "
+"``g_get_user_cache_dir ()``, ``g_get_user_data_dir ()``, "
+"``g_get_user_config_dir ()``"
+
+#: ../../conventions.rst:226
+msgid ""
+"Qt: provides access to XDG base directories with the `QStandardPaths Class "
+"<https://doc.qt.io/qt-5/qstandardpaths.html>`_"
+msgstr ""
+"Qt: cung cấp quyền truy cập vào các thư mục cơ sở XDG với `QStandardPaths "
+"Class <https://doc.qt.io/qt-5/qstandardpaths.html>`_"
+
+#: ../../conventions.rst:229
+msgid ""
+"However, applications that aren't using one of these toolkits can expect to "
+"find their XDG base directories in the following locations:"
+msgstr ""
+"Tuy nhiên, các ứng dụng không sử dụng một trong những bộ công cụ này có thể "
+"tìm thấy các thư mục cơ sở XDG ở các vị trí sau:"
+
+#: ../../conventions.rst:233
+msgid "Base directory"
+msgstr "Thư mục cơ sở"
+
+#: ../../conventions.rst:233
+msgid "Usage"
+msgstr "Dùng cho"
+
+#: ../../conventions.rst:233
+msgid "Default location"
+msgstr "Vị trí mặc định"
+
+#: ../../conventions.rst:235
+msgid "XDG_CONFIG_HOME"
+msgstr "XDG_CONFIG_HOME"
+
+#: ../../conventions.rst:235
+msgid "User-specific configuration files"
+msgstr "Các tệp cấu hình riêng cho mỗi người dùng"
+
+#: ../../conventions.rst:235
+msgid "~/.var/app/<app-id>/config"
+msgstr "~/.var/app/<app-id>/config"
+
+#: ../../conventions.rst:236
+msgid "XDG_DATA_HOME"
+msgstr "XDG_DATA_HOME"
+
+#: ../../conventions.rst:236
+msgid "User-specific data"
+msgstr "Dữ liệu riêng cho mỗi người dùng"
+
+#: ../../conventions.rst:236
+msgid "~/.var/app/<app-id>/data"
+msgstr "~/.var/app/<app-id>/data"
+
+#: ../../conventions.rst:237
+msgid "XDG_CACHE_HOME"
+msgstr "XDG_CACHE_HOME"
+
+#: ../../conventions.rst:237
+msgid "Non-essential user-specific data"
+msgstr "Dữ liệu không thiết yếu (non-essential) riêng cho mỗi người dùng"
+
+#: ../../conventions.rst:237
+msgid "~/.var/app/<app-id>/cache"
+msgstr "~/.var/app/<app-id>/cache"
+
+#: ../../conventions.rst:238
+msgid "XDG_STATE_HOME"
+msgstr "XDG_STATE_HOME"
+
+#: ../../conventions.rst:238
+msgid "State data such as undo history"
+msgstr ""
+"Dữ liệu trạng thái (state), chẳng hạn như lịch sử hoàn tác (undo history)"
+
+#: ../../conventions.rst:238
+msgid "~/.var/app/<app-id>/.local/state"
+msgstr "~/.var/app/<app-id>/.local/state"
+
+#: ../../conventions.rst:241
+msgid "For example, GNOME Dictionary will store user-specific data in::"
+msgstr ""
+"Ví dụ: GNOME Dictionary sẽ lưu trữ dữ liệu riêng cho mỗi người dùng trong::"
+
+#: ../../conventions.rst:245
+msgid ""
+"These environment variables are always set by flatpak and override any host "
+"values. However if using the host directories are needed the "
+"``$HOST_XDG_CONFIG_HOME``, ``$HOST_XDG_DATA_HOME``, "
+"``$HOST_XDG_CACHE_HOME``, and ``$HOST_XDG_STATE_HOME`` environment variables "
+"will be set if a custom value was set on the host."
+msgstr ""
+"Các biến môi trường (environment variables) này luôn được đặt bởi flatpak và "
+"ghi đè lên các giá trị của máy chủ. Tuy nhiên, nếu cần sử dụng các thư mục "
+"của máy chủ, có thể sử dụng các biến môi trường ``$HOST_XDG_CONFIG_HOME``, "
+"`$HOST_XDG_DATA_HOME``, `$HOST_XDG_CACHE_HOME`` và ``$HOST_XDG_STATE_HOME`` "
+"nếu máy chủ có đặt các giá trị tùy chỉnh."
+
+#: ../../conventions.rst:250
+msgid ""
+"Note that ``$XDG_STATE_HOME`` and ``$HOST_XDG_STATE_HOME`` is only supported "
+"by Flatpak 1.13 and later. If your app needs to work on earlier versions of "
+"Flatpak, you can use the ``--persist=.local/state`` and ``--unset-"
+"env=XDG_STATE_HOME`` finish args so the app will use the correct directory, "
+"even after Flatpak is later upgraded to >1.13."
+msgstr ""
+"Lưu ý rằng ``$XDG_STATE_HOME`` và ``$HOST_XDG_STATE_HOME`` chỉ được hỗ trợ "
+"bởi Flatpak 1.13 trở lên. Nếu ứng dụng của bạn cần hoạt động trên các phiên "
+"bản trước đó của Flatpak, bạn có thể sử dụng các đối số kết thúc (finish "
+"args) ``--persist=.local/state`` và ``-unset-env=XDG_STATE_HOME`` để ứng "
+"dụng sử dụng đúng thư mục, ngay cả khi Flatpak sau đó được nâng cấp lên "
+">1.13."
+
+#: ../../conventions.rst:256
+msgid ""
+"Note that applications can be configured to use non-default base directory "
+"locations (see :doc:`sandbox-permissions`)."
+msgstr ""
+"Lưu ý rằng các ứng dụng có thể được cấu hình để sử dụng các vị trí thư mục "
+"cơ sở không mặc định (xem :d oc:'sandbox-permissions')."
