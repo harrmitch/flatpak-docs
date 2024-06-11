@@ -1,0 +1,352 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024, Flatpak Team. Licensed under Creative Commons Attribution 4.0 International License.
+# This file is distributed under the same license as the Flatpak package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Flatpak\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-07 23:48+0700\n"
+"PO-Revision-Date: 2024-06-11 23:53+0700\n"
+"Last-Translator: Harry Mitchell <minhyh0987@gmail.com>\n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#: ../../dependencies.rst:2
+msgid "Dependencies"
+msgstr "Dependencies (Các phần phụ thuộc)"
+
+#: ../../dependencies.rst:4
+msgid ""
+"Flatpak provides a number of different options for how applications can "
+"depend on other software. When setting out to build an application with "
+"Flatpak for the first time, it is therefore necessary to decide how "
+"application dependencies will be organized."
+msgstr ""
+"Flatpak cung cấp một số sự lựa chọn khác nhau về cách ứng dụng có thể phụ "
+"thuộc vào phần mềm khác. Do đó, khi bắt đầu xây dựng một ứng dụng với "
+"Flatpak lần đầu tiên, cần phải quyết định cách tổ chức các dependency (phần "
+"phụ thuộc) của ứng dụng."
+
+#: ../../dependencies.rst:9
+msgid ""
+"This page outlines what the options are, and provides guidance on when to "
+"use each one."
+msgstr ""
+"Trang này cung cấp thông tin các tùy chọn ấy và khi nào nên sử dụng chúng."
+
+#: ../../dependencies.rst:13
+msgid "Runtimes"
+msgstr "Runtime"
+
+#: ../../dependencies.rst:15
+msgid ""
+"As was described in :doc:`basic-concepts`, runtimes provide basic "
+"dependencies that can be used by applications. They also provide the "
+"environment that applications run in. Flatpak requires each application to "
+"specify a runtime. Therefore, one of the first decisions you need to make "
+"when building an application with Flatpak, is which runtime it will use."
+msgstr ""
+"Như đã được mô tả trong :doc:`basic-concepts`, runtime cung cấp các "
+"dependency cơ bản có thể được sử dụng bởi các ứng dụng. Chúng cũng cung cấp "
+"môi trường để các ứng dụng hoạt động. Flatpak yêu cầu mỗi ứng dụng chỉ định "
+"một runtime. Do đó, một trong những quyết định đầu tiên bạn cần đưa ra khi "
+"xây dựng một ứng dụng với Flatpak là runtime nào sẽ được sử dụng."
+
+#: ../../dependencies.rst:21
+msgid ""
+"An overview of the runtimes that are available can be found in the :doc:"
+"`available-runtimes` page. There are deliberately only a small number of "
+"runtimes to choose from. Typically, runtimes are picked on the basis of "
+"which dependencies an application requires. If a runtime exists that "
+"provides libraries that you plan on using, this is usually the correct "
+"runtime to use!"
+msgstr ""
+"Tổng quan về các runtime có sẵn nằm ở trang :doc:`available-runtimes`. Chủ "
+"đích là chỉ có một số lượng nhỏ các runtime để lựa chọn. Thông thường, "
+"runtime được chọn trên cơ sở ứng dụng yêu cầu các dependency nào. Thường bạn "
+"sẽ chọn runtime cung cấp các thư viện bạn định sử dụng!"
+
+#: ../../dependencies.rst:29
+msgid ""
+"Runtimes require regular maintenance, and application developers should "
+"generally not consider creating their own."
+msgstr ""
+"Các runtime cần được thường xuyên bảo trì và các nhà phát triển ứng dụng nói "
+"chung không nên nghĩ tới việc tạo runtime riêng cho họ."
+
+#: ../../dependencies.rst:32
+msgid ""
+"Runtimes are automatically installed for users when they install an "
+"application, and build tools can also automatically install them for you "
+"(``flatpak-builder``'s ``--install-deps-from`` option is useful for this). "
+"However, if you do need to manually install your chosen runtime, this can be "
+"done in the same way as installing an application, with the ``flatpak "
+"install`` command. For example, the command to install the GNOME 43 runtime "
+"is::"
+msgstr ""
+"Các runtime được tự động cài đặt cho người dùng khi họ cài đặt ứng dụng và "
+"các công cụ xây dựng (build tool) cũng có thể tự động cài đặt chúng cho bạn "
+"(tùy chọn ``--install-deps-from`` của ``flatpak-builder `` rất hữu ích cho "
+"việc này). Tuy nhiên, nếu bạn cần cài đặt thủ công runtime đã chọn, việc này "
+"có thể được thực hiện tương tự như cài đặt ứng dụng với lệnh ``flatpak "
+"install``. Ví dụ: lệnh cài đặt runtime GNOME 43 là::"
+
+#: ../../dependencies.rst:43
+msgid "Bundling"
+msgstr "Đóng gói kèm (Bundling)"
+
+#: ../../dependencies.rst:45
+msgid ""
+"One of the key advantages of Flatpak is that it allows application authors "
+"to bundle whatever libraries or dependencies that they want. This means that "
+"developers aren't constrained by which libraries are available through Linux "
+"distributions."
+msgstr ""
+"Một trong những ưu điểm chính của Flatpak là nó cho phép các nhà phát triển "
+"ứng dụng gói kèm (bundle) bất kì thư viện hoặc dependency nào mà họ muốn. "
+"Điều này có nghĩa là các nhà phát triển không bị ràng buộc bởi thư viện nào "
+"có sẵn thông qua các bản phân phối Linux."
+
+#: ../../dependencies.rst:50
+msgid ""
+"When it comes to building an application for the first time, you will need "
+"to decide which dependencies to bundle. This can include:"
+msgstr ""
+"Khi xây dựng một ứng dụng lần đầu tiên, bạn sẽ cần phải quyết định những "
+"dependency nào sẽ được đóng gói kèm theo. Chúng có thể bao gồm:"
+
+#: ../../dependencies.rst:53
+msgid "libraries that aren't in your chosen runtime"
+msgstr "các thư viện không có trong runtime bạn đã chọn"
+
+#: ../../dependencies.rst:54
+msgid "different versions of libraries that are in your chosen runtime"
+msgstr "các phiên bản khác của các thư viện đã có trong runtime bạn đã chọn"
+
+#: ../../dependencies.rst:55
+msgid "patched versions of libraries"
+msgstr "các phiên bản vá (patched) của các thư viện"
+
+#: ../../dependencies.rst:56
+msgid "data or other resources that form part of the application"
+msgstr "dữ liệu hoặc các tài nguyên khác mà là một phần của ứng dụng"
+
+#: ../../dependencies.rst:58
+msgid ""
+"As will be seen, bundled dependencies can be automatically downloaded as "
+"part of the build process. It is also possible to apply patches and perform "
+"other transformations."
+msgstr ""
+"Như ta sẽ thấy, các dependecy gói kèm có thể được tự động tải xuống trong "
+"quá trình xây dựng (build process). Cũng có thể áp dụng các bản vá lỗi và "
+"thực hiện các biến đổi khác."
+
+#: ../../dependencies.rst:62
+msgid ""
+"While bundling is very powerful and flexible, it also places a greater "
+"maintenance burden on the application developer. Therefore, while it is "
+"possible to bundle as much as you would like, it is generally recommended to "
+"try and keep the number of bundled modules as low as possible. If a "
+"dependency is available as part of a runtime, it is generally better to use "
+"that version rather than bundle it yourself."
+msgstr ""
+"Mặc dù việc đóng gói kèm rất mạnh mẽ và linh hoạt, nhưng nó cũng đặt gánh "
+"nặng bảo trì lớn hơn lên nhà phát triển ứng dụng. Do đó, mặc dù có thể gói "
+"kèm bao nhiêu tùy thích, thông thường bạn nên thử và giữ số lượng mô-đun đi "
+"kèm càng thấp càng tốt. Nói chung nếu một dependency có sẵn trong runtime, "
+"sử dụng phiên bản đó sẽ tốt hơn là tự đóng gói nó."
+
+#: ../../dependencies.rst:69
+msgid ""
+"The specifics of how to bundle libraries is covered in the :doc:`manifests` "
+"section."
+msgstr ""
+"Chi tiết cụ thể về cách gói kèm các thư viện được đề cập trong phần :doc:"
+"`manifests`."
+
+#: ../../dependencies.rst:73
+msgid "Base apps"
+msgstr "Ứng dụng cơ sở (Base app)"
+
+#: ../../dependencies.rst:75
+msgid ""
+"Runtimes and bundling are the two main ways in which dependencies are "
+"handled with Flatpak. They allow applications to rely on stable collections "
+"of dependencies on the one hand, and to have flexibility and control on the "
+"other."
+msgstr ""
+"Runtime và đóng gói kèm là hai cách chính mà các dependency được Flatpak xử "
+"lý. Chúng cho phép các ứng dụng một mặt dựa vào các tập hợp dependency ổn "
+"định, và mặt khác có sự linh hoạt và kiểm soát."
+
+#: ../../dependencies.rst:79
+msgid ""
+"However, in some cases, dependencies come as part of a bigger framework or "
+"toolkit, which doesn't fit into a runtime but which is also cumbersome to "
+"manually bundle as a series of individual modules. This is where *base apps* "
+"come in."
+msgstr ""
+"Tuy nhiên, trong một số trường hợp, các dependency là một phần của một "
+"framework hoặc toolkit (bộ công cụ) lớn hơn, không phù hợp để cho vào trong "
+"một runtime nhưng cũng cồng kềnh để gói kèm thủ công dưới dạng một loạt các "
+"mô-đun riêng lẻ. Đây là lúc *base app* xuất hiện."
+
+#: ../../dependencies.rst:84
+msgid ""
+"Base apps contain collections of bundled dependencies which can then be "
+"bundled as part of an application. They don't get rebuilt as part of the "
+"build process, which makes building faster (particularly when bundling large "
+"dependencies). And because each base app is only built once, it is "
+"guaranteed to be identical wherever it is used, so it will only be saved "
+"once on disk."
+msgstr ""
+"Ứng dụng cơ sở chứa các tập hợp dependency đã được đóng gói, mà sau đó có "
+"thể được gói kèm như một phần của một ứng dụng Flatpak. Chúng không được xây "
+"dựng lại (rebuilt) trong quá trình xây dựng, điều này làm cho việc xây dựng "
+"nhanh hơn (đặc biệt là khi đóng gói kèm các dependency lớn). Và bởi vì mỗi "
+"ứng dụng cơ sở chỉ được xây dựng một lần, nó được đảm bảo là giống hệt nhau "
+"ở bất cứ nơi nào nó được sử dụng, và vì vậy nó sẽ chỉ được lưu một lần trên "
+"đĩa."
+
+#: ../../dependencies.rst:90
+msgid ""
+"Base apps are a relatively specialized concept and only some applications "
+"need to use them (the most common base app is used for `Electron "
+"applications <https://github.com/flathub/io.atom.electron.BaseApp>`_). "
+"However, if your application uses a large, complex or specialized framework, "
+"it is a good idea to check for available base apps before you start building."
+msgstr ""
+"Ứng dụng cơ sở là một khái niệm tương đối chuyên biệt và chỉ một số ứng dụng "
+"cần sử dụng chúng (ứng dụng cơ sở phổ biến nhất được sử dụng cho `các ứng "
+"dụng Electron <https://github.com/flathub/io.atom.electron.BaseApp>`_). Tuy "
+"nhiên, nếu ứng dụng của bạn sử dụng một framework lớn, phức tạp hoặc chuyên "
+"biệt, bạn nên kiểm tra các ứng dụng cơ sở có sẵn trước khi bắt đầu xây dựng."
+
+#: ../../dependencies.rst:97
+msgid "Extensions"
+msgstr "Phần mở rộng (Extension)"
+
+#: ../../dependencies.rst:99
+msgid ""
+"Runtimes and applications can define extension points which allow optional "
+"additional runtimes to be mounted at a specified location inside the sandbox "
+"when they are present on the system. Typical uses for extensions include "
+"translations for applications, debuginfo for sdks, or adding more "
+"functionality to the application. Some software refers to these extensions "
+"as \"Add-ons\"."
+msgstr ""
+"Runtime và ứng dụng có thể xác định các điểm mở rộng (extension point) cho "
+"phép các runtime bổ sung được mount (gắn) tại một vị trí được chỉ định bên "
+"trong sandbox khi hệ thống khởi tạo sandbox. Trường hợp sử dụng điển hình "
+"cho các phần mở rộng bao gồm các bản dịch cho ứng dụng, debuginfo (thông tin "
+"gỡ lỗi) cho các SDK, hoặc thêm tính năng cho ứng dụng. Một số phần mềm đề "
+"cập đến các phần mở rộng này là \"Add-ons\" (hay các tiện ích bổ sung, "
+"chương trình mở rộng, tiện ích mở rộng)."
+
+#: ../../dependencies.rst:105
+msgid ""
+"For an extension to be loaded in the application or runtime, an extension "
+"point first needs to be defined in the application or runtime in question."
+msgstr ""
+"Để phần mở rộng được tải (loaded) trong ứng dụng hoặc runtime, trước tiên "
+"cần xác định (define) điểm mở rộng cho ứng dụng hoặc runtime đó."
+
+#: ../../dependencies.rst:109
+msgid ""
+"By convention, extension points follow the ID of the application or runtime "
+"in question, followed by a generic term for the extension. For example, the "
+"OBS Studio flatpak may define an extension point ``com.obsproject.Studio."
+"Plugin``, where \"Plugin\" is the generic term prefixed by the application "
+"ID."
+msgstr ""
+"Theo quy ước, các điểm mở rộng tuân theo định danh của ứng dụng hoặc runtime "
+"liên quan, theo sau là một từ ngữ được dùng chung (generic term) cho phần mở "
+"rộng. Ví dụ: flatpak OBS Studio có thể xác định một điểm mở rộng là ``com."
+"obsproject.Studio.Plugin``, trong đó định danh ứng dụng là tiền tố cho từ "
+"dùng chung \"Plugin\"."
+
+#: ../../dependencies.rst:115
+msgid ""
+"To see available extension points, it's best to look at the application or "
+"runtime manifest."
+msgstr ""
+"Để xem các điểm mở rộng có sẵn, bạn nên kiểm tra tệp kê khai (manifest) của "
+"ứng dụng hoặc runtime."
+
+#: ../../dependencies.rst:118
+msgid ""
+"Any extension now choosing to be loaded inside the OBS Studio flatpak must "
+"prefix their ID by ``com.obsproject.Studio.Plugin`` for example ``com."
+"obsproject.Studio.Plugin.Gstreamer``."
+msgstr ""
+"Giờ bất kỳ phần mở rộng nào muốn được tải cho flatpak OBS Studio phải có "
+"``com.obsproject.Studio.Plugin`` làm tiền tố định danh của chúng, ví dụ: "
+"``com.obsproject.Studio.Plugin.Gstreamer``."
+
+#: ../../dependencies.rst:122
+msgid "Some extension names having special significance are discussed below."
+msgstr ""
+"Một số tên của phần mở rộng có ý nghĩa đặc biệt được thảo luận dưới đây."
+
+#: ../../dependencies.rst:124
+msgid ""
+"``.Debug`` is used for Debug extensions by applications, runtimes and SDKs. "
+"They are used for debugging purposes. Every application or runtime built "
+"with ``flatpak-builder`` produces a ``.Debug`` extension unless specifically "
+"disabled in the manifest."
+msgstr ""
+"``.Debug`` được sử dụng cho các Debug extension của các ứng dụng, runtime và "
+"SDK. Chúng được sử dụng cho mục đích gỡ lỗi. Mỗi ứng dụng hoặc runtime được "
+"xây dựng với ``flatpak-builder`` tạo ra một phần mở rộng ``.Debug`` trừ khi "
+"bị trực tiếp vô hiệu hóa trong tệp kê khai."
+
+#: ../../dependencies.rst:129
+msgid ""
+"A ``.Debug`` extension will be needed when generating useful backtraces. "
+"This is explained more in :doc:`debugging`."
+msgstr ""
+"Phần mở rộng ``.Debug`` sẽ cần thiết để tạo backtraces (các dấu vết lùi) hữu "
+"ích. Điều này được giải thích thêm trong :doc:`debugging`."
+
+#: ../../dependencies.rst:132
+msgid ""
+"``.Locale`` is used for Locale extensions by applications or runtimes. They "
+"add support for more languages to the parent application or runtime. These "
+"are usually partially downloaded by ``flatpak`` based on the configured "
+"system locale. Every application or runtime built with ``flatpak-builder`` "
+"produces a ``.Locale`` extension unless specifically disabled in the "
+"manifest."
+msgstr ""
+"``.Locale`` được sử dụng cho các Locale extension của các ứng dụng hoặc "
+"runtime. Chúng hỗ trợ thêm nhiều ngôn ngữ hơn vào ứng dụng hoặc runtime. "
+"Chúng thường được ``flatpak`` tải xuống một phần (partially) dựa trên ngôn "
+"ngữ hệ thống được cấu hình (system locale). Mỗi ứng dụng hoặc runtime được "
+"xây dựng với ``flatpak-builder`` tạo ra một phần mở rộng ``.Locale`` trừ khi "
+"bị trực tiếp vô hiệu hóa trong tệp kê khai."
+
+#: ../../dependencies.rst:139
+msgid ""
+"``.Sources`` is used for Sources extension by application or runtime. They "
+"are used to bundle sources of the modules used in the application or runtime "
+"in question. ``flatpak-builder`` will produce a ``.Sources`` extension "
+"prefixed by ID when ``--bundle-sources`` is used."
+msgstr ""
+"``.Sources`` được sử dụng cho các Sources extension của ứng dụng hoặc "
+"runtime. Chúng được sử dụng để gói các nguồn của các mô-đun được sử dụng "
+"trong ứng dụng hoặc runtime. ``flatpak-builder`` sẽ tạo ra một phần mở rộng "
+"``.Sources`` có tiền tố là định danh khi ``--bundle-sources`` được sử dụng."
+
+#: ../../dependencies.rst:144
+msgid ""
+"Please visit :doc:`extension` for a guide on how to create extension points "
+"and extensions."
+msgstr ""
+"Vui lòng truy cập :doc:`extension` để xem hướng dẫn về cách tạo các điểm mở "
+"rộng và các phần mở rộng."
