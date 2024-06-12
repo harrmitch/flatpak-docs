@@ -1,0 +1,436 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024, Flatpak Team. Licensed under Creative Commons Attribution 4.0 International License.
+# This file is distributed under the same license as the Flatpak package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Flatpak\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-07 23:48+0700\n"
+"PO-Revision-Date: 2024-06-12 22:34+0700\n"
+"Last-Translator: Harry Mitchell <minhyh0987@gmail.com>\n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#: ../../manifests.rst:2
+msgid "Manifests"
+msgstr "Tệp kê khai (Manifest)"
+
+#: ../../manifests.rst:4
+msgid ""
+"The input to ``flatpak-builder`` is a JSON or YAML file that describes the "
+"parameters for building an application, as well as instructions for each of "
+"the modules that are to be built. This file is called the manifest."
+msgstr ""
+"Đầu vào cho ``flatpak-builder`` là một tệp JSON hoặc YAML mô tả các tham số "
+"(parameters) để xây dựng ứng dụng, cũng như hướng dẫn cách xây dựng từng mô-"
+"đun (module). Tệp này được gọi là tệp kê khai (manifest)."
+
+#: ../../manifests.rst:8
+msgid ""
+"This page provides information and guidance on how to use manifests, "
+"including an explanation of the most common parameters that can be "
+"specified. It is recommended to have followed the :doc:`first-build` "
+"tutorial before reading this section, and to be familiar with :doc:`flatpak-"
+"builder`."
+msgstr ""
+"Trang này thông tin và hướng dẫn về cách sử dụng tệp kê khai, bao gồm giải "
+"thích về các tham số phổ biến nhất có thể được chỉ định. Bạn nên làm theo "
+"hướng dẫn :doc:`first-build` trước khi đọc phần này, và nên làm quen với :"
+"doc:`flatpak-builder`."
+
+#: ../../manifests.rst:13
+msgid ""
+"Manifest files should be named using the application ID. For example, the "
+"manifest file for GNOME Dictionary is named ``org.gnome.Dictionary.yml``. "
+"This page uses this manifest file for all its examples."
+msgstr ""
+"Các tệp kê khai phải được đặt tên bằng định danh ứng dụng. Ví dụ: tệp kê "
+"khai cho GNOME Dictionary được đặt tên là ``org.gnome.Dictionary.yml``. "
+"Trang này sử dụng tệp kê khai này cho tất cả các ví dụ."
+
+#: ../../manifests.rst:17
+msgid ""
+"A complete list of all the properties that can be specified in manifest "
+"files can be found in the :doc:`flatpak-builder-command-reference`, as well "
+"as the ``flatpak-manifest`` man page."
+msgstr ""
+"Danh sách đầy đủ tất cả các thuộc tính (properties) có thể được chỉ định "
+"trong tệp kê khai được tìm thấy ở :doc:`flatpak-builder-command-reference`, "
+"cũng như trang trợ giúp (man page) ``flatpak-manifest``."
+
+#: ../../manifests.rst:22
+msgid "Basic properties"
+msgstr "Các thuộc tính cơ bản (Basic properties)"
+
+#: ../../manifests.rst:24
+msgid ""
+"Each manifest file should specify basic information about the application "
+"that is to be built, including the ``id``, ``runtime``, ``runtime-version``, "
+"``sdk`` and ``command`` parameters. These properties are typically specified "
+"at the beginning of the file."
+msgstr ""
+"Mỗi tệp kê khai phải chỉ định thông tin cơ bản về ứng dụng sẽ được xây dựng, "
+"bao gồm các tham số ``id``, ``runtime``, ``runtime-version``, ``sdk`` và "
+"``command``. Các thuộc tính này thường được chỉ định ở đầu tệp."
+
+#: ../../manifests.rst:29
+msgid "For example, the GNOME Dictionary manifest includes:"
+msgstr "Ví dụ: tệp kê khai của GNOME Dictionary bao gồm:"
+
+#: ../../manifests.rst:39
+msgid ""
+"Specifying a runtime and runtime version allows that the runtime that is "
+"needed by your application to be automatically installed on users' systems."
+msgstr ""
+"Việc nêu rõ runtime và phiên bản runtime cần thiết cho ứng dụng của bạn sẽ "
+"khiến nó được tự động cài đặt trên hệ thống của người dùng."
+
+#: ../../manifests.rst:43
+msgid "File renaming"
+msgstr "Đổi tên tệp (File renaming)"
+
+#: ../../manifests.rst:45
+msgid ""
+"Exports are application files that are made available to the host, and "
+"include things like the application's ``.desktop`` file and icon."
+msgstr ""
+"Các tệp được xuất (exports) là các tệp ứng dụng được cung cấp cho máy chủ, "
+"bao gồm những thứ như tệp ``.desktop`` và biểu tượng của ứng dụng."
+
+#: ../../manifests.rst:48
+msgid ""
+"The names of files that are exported by a Flatpak must be prefixed using the "
+"application ID, such as ``org.gnome.Dictionary.desktop``. The best way to do "
+"this is to rename these files directly in the application's source."
+msgstr ""
+"Tên của các tệp được xuất bởi Flatpak phải có tiền tố là định danh của ứng "
+"dụng, chẳng hạn như ``org.gnome.Dictionary.desktop``. Cách tốt nhất để làm "
+"vậy là đổi tên các tệp này trực tiếp trong nguồn của ứng dụng."
+
+#: ../../manifests.rst:52
+msgid ""
+"If renaming exported files to use the application ID is not possible, "
+"``flatpak-builder`` allows them to be renamed as part of the build process. "
+"This can be done by specifying one of the following properties in the "
+"manifest:"
+msgstr ""
+"Nếu không thể đổi tên các tệp cần xuất để sử dụng định danh ứng dụng, "
+"``flatpak-builder`` cho phép đổi tên chúng trong quá trình xây dựng (build "
+"process). Việc này có thể được thực hiện bằng cách chỉ định một trong các "
+"thuộc tính sau trong tệp kê khai:"
+
+#: ../../manifests.rst:57
+msgid "``rename-icon`` - rename the application icon"
+msgstr "``rename-icon`` - đổi tên biểu tượng ứng dụng"
+
+#: ../../manifests.rst:58
+msgid "``rename-desktop-file`` - rename the ``.desktop`` filename"
+msgstr "``rename-desktop-file`` - đổi tên tệp ``.desktop``"
+
+#: ../../manifests.rst:59
+msgid "``rename-appdata-file`` - rename the MetaInfo file"
+msgstr "``rename-appdata-file`` - đổi tên tệp MetaInfo"
+
+#: ../../manifests.rst:61
+msgid ""
+"Each of these properties accepts the name of the source file to be renamed. "
+"``flatpak-builder`` then automatically renames the file to match the "
+"application ID. Note that this renaming method can introduce internal naming "
+"conflicts, and that renaming files in tree is therefore the most reliable "
+"approach."
+msgstr ""
+"Mỗi thuộc tính này nhận tên của tệp nguồn sẽ được đổi tên. ``flatpak-"
+"builder`` sau đó tự động đổi tên tệp để khớp với định danh ứng dụng. Lưu ý "
+"rằng phương pháp đổi tên này có thể gây ra xung đột tên nội bộ, và do đó đổi "
+"tên tệp trong nguồn là cách đáng tin cậy nhất."
+
+#: ../../manifests.rst:68
+msgid "Finishing"
+msgstr "Finishing (Bước hoàn thiện)"
+
+#: ../../manifests.rst:70
+msgid ""
+"Applications that are run with Flatpak have extremely limited access to the "
+"host environment by default, but applications require access to resources "
+"outside of their sandbox in order to be useful. Finishing is the build stage "
+"where the application's sandbox permissions are specified, in order to give "
+"access to these resources."
+msgstr ""
+"Các ứng dụng được chạy với Flatpak có quyền truy cập cực kỳ hạn chế vào môi "
+"trường máy chủ theo mặc định, nhưng để sử dụng được các ứng dụng thường cần "
+"quyền truy cập vào tài nguyên bên ngoài sandbox. Finishing là giai đoạn xây "
+"dựng (build stage) khi các quyền sandbox của ứng dụng được chỉ định, giúp "
+"cấp quyền truy cập vào các tài nguyên trên."
+
+#: ../../manifests.rst:76
+msgid ""
+"The finishing manifest section uses the ``finish-args`` property, which can "
+"be seen in the Dictionary manifest file:"
+msgstr ""
+"Phần finishing của tệp kê khai sử dụng thuộc tính ``finish-args``, như ta có "
+"thể thấy trong tệp kê khai của Dictionary:"
+
+#: ../../manifests.rst:94
+msgid ""
+"Guidance on which permissions to use can be found in the :doc:`sandbox-"
+"permissions`."
+msgstr ""
+"Hướng dẫn về cách đặt các quyền có thể được tìm thấy trong :doc:`sandbox-"
+"permissions`."
+
+#: ../../manifests.rst:97
+msgid ""
+"If you're wondering about the last finish arg, see `this blog post <https://"
+"blogs.gnome.org/mclasen/2019/07/12/settings-in-a-sandbox-world/>`__."
+msgstr ""
+"Nếu bạn đang tự hỏi về cái finish arg cuối cùng, hãy xem `bài đăng blog này "
+"<https://blogs.gnome.org/mclasen/2019/07/12/settings-in-a-sandbox-world/>`__."
+
+#: ../../manifests.rst:101
+msgid "Cleanup"
+msgstr "Cleanup (Bước dọn dẹp)"
+
+#: ../../manifests.rst:103
+msgid ""
+"The cleanup property can be used to remove files produced by the build "
+"process that are not wanted as part of the application, such as headers or "
+"developer documentation. Two properties in the manifest file are used for "
+"this."
+msgstr ""
+"Thuộc tính cleanup có thể được sử dụng để loại bỏ các tệp được tạo ra bởi "
+"quá trình xây dựng mà không muốn trở thành một phần của ứng dụng, chẳng hạn "
+"các tệp header hoặc tài liệu dành cho nhà phát triển. Hai thuộc tính trong "
+"tệp kê khai được sử dụng cho việc này."
+
+#: ../../manifests.rst:107
+msgid "First, a list of filename patterns can be included::"
+msgstr "Đầu tiên là một danh sách mẫu tên các tệp cần được xử lí::"
+
+#: ../../manifests.rst:114
+msgid ""
+"The second cleanup property is a list of commands that are run during the "
+"cleanup phase::"
+msgstr ""
+"Thuộc tính cleanup thứ hai là danh sách các lệnh được chạy trong giai đoạn "
+"cleanup::"
+
+#: ../../manifests.rst:120
+msgid ""
+"Cleanup properties can be set on a per-module basis, in which case only "
+"filenames that were created by that particular module will be matched."
+msgstr ""
+"Các thuộc tính dọn dẹp có thể được đặt cho mỗi mô-đun, và trong trường hợp "
+"đó, chỉ các tên tệp được tạo bởi mô-đun cụ thể đó mới được khớp."
+
+#: ../../manifests.rst:124
+msgid "Modules"
+msgstr "Mô-đun (Module)"
+
+#: ../../manifests.rst:126
+msgid ""
+"The module list specifies each of the modules that are to be built as part "
+"of the build process. One of these modules is the application itself, and "
+"other modules are dependencies and libraries that are bundled as part of the "
+"Flatpak. While simple applications may only specify one or two modules, and "
+"therefore have short modules sections, some applications can bundle numerous "
+"modules and therefore have lengthy modules sections."
+msgstr ""
+"Danh sách mô-đun chỉ định từng mô-đun sẽ được xây dựng trong quá trình xây "
+"dựng. Một trong những mô-đun này chính là ứng dụng, và các mô-đun khác là "
+"các dependency và thư viện được đóng gói kèm như một phần của Flatpak ấy. "
+"Mặc dù các ứng dụng đơn giản có thể chỉ cần nêu một hoặc hai mô-đun và do đó "
+"có các phần mô-đun (module section) ngắn, một số ứng dụng có thể gói kèm "
+"nhiều mô-đun và do đó có các phần mô-đun dài."
+
+#: ../../manifests.rst:133
+msgid ""
+"GNOME Dictionary's modules section is short, since it just contains the "
+"application itself, and looks like:"
+msgstr ""
+"Phần mô-đun của GNOME Dictionary rất ngắn vì nó chỉ chứa chính ứng dụng, và "
+"trông giống như:"
+
+#: ../../manifests.rst:150
+msgid ""
+"As can be seen, each listed module has a ``name`` (which can be freely "
+"assigned) and a list of ``sources``. Each source has a ``type``, and "
+"available types include:"
+msgstr ""
+"Như có thể thấy, mỗi mô-đun được liệt kê có một ``name`` (có thể được gán tự "
+"do) và một danh sách các ``sources``. Mỗi source (nguồn) có một ``type`` "
+"(loại) và các loại có sẵn bao gồm:"
+
+#: ../../manifests.rst:154
+msgid "``archive`` - ``.tar`` or ``.zip`` archive files"
+msgstr "``archive`` - tệp lưu trữ ``.tar`` hoặc ``.zip``"
+
+#: ../../manifests.rst:155
+msgid "``git`` - Git repositories"
+msgstr "``git`` - Kho lưu trữ Git"
+
+#: ../../manifests.rst:156
+msgid "``bzr`` - Bazaar repositories"
+msgstr "``bzr`` - Kho lưu trữ Bazaar"
+
+#: ../../manifests.rst:157
+msgid ""
+"``file`` - local/remote files (these are copied into the source directory)"
+msgstr "``file`` - tệp cục bộ/từ xa (chúng được sao chép vào thư mục nguồn)"
+
+#: ../../manifests.rst:158
+msgid ""
+"``dir`` - local directories (these are copied into the source directory)"
+msgstr "``dir`` - thư mục cục bộ (chúng được sao chép vào thư mục nguồn)"
+
+#: ../../manifests.rst:159
+msgid ""
+"``script`` - an array of shell commands (these are put in a shellscript file)"
+msgstr ""
+"``script`` - một danh sách các lệnh shell (chúng được đặt trong một tệp "
+"shellscript)"
+
+#: ../../manifests.rst:161
+msgid ""
+"``shell`` - an array of shell commands that are run during source extraction"
+msgstr ""
+"``shell`` - một danh sách các lệnh shell được chạy trong quá trình trích "
+"xuất nguồn (source extraction)"
+
+#: ../../manifests.rst:162
+msgid "``patch`` - a patch (are applied to the source directory)"
+msgstr "``patch`` - một bản vá (được áp dụng cho thư mục nguồn)"
+
+#: ../../manifests.rst:163
+msgid ""
+"``extra-data`` - data that can be downloaded at install time; this can "
+"include archive or package files"
+msgstr ""
+"``extra-data`` - dữ liệu có thể được tải xuống tại thời điểm cài đặt; chúng "
+"có thể bao gồm các tệp lưu trữ (archive) hoặc các gói (package file)"
+
+#: ../../manifests.rst:166
+msgid ""
+"Different properties are available for each source type, which are listed in "
+"the :doc:`module-sources`."
+msgstr ""
+"Mỗi loại nguồn có các thuộc tính khác nhau, được liệt kê trong :doc:`module-"
+"sources`."
+
+#: ../../manifests.rst:170
+msgid "Supported build systems"
+msgstr "Các hệ thống xây dựng được hỗ trợ (Supported build systems)"
+
+#: ../../manifests.rst:172
+msgid "Modules can be built with a variety of build systems, including:"
+msgstr ""
+"Các mô-đun có thể được xây dựng với nhiều hệ thống xây dựng khác nhau, bao "
+"gồm:"
+
+#: ../../manifests.rst:174
+msgid ""
+"`autotools <https://www.gnu.org/software/automake/manual/html_node/Autotools-"
+"Introduction.html>`_"
+msgstr ""
+"`autotools <https://www.gnu.org/software/automake/manual/html_node/Autotools-"
+"Introduction.html>`_"
+
+#: ../../manifests.rst:175
+msgid "`cmake <https://cmake.org/>`_"
+msgstr "`cmake <https://cmake.org/>`_"
+
+#: ../../manifests.rst:176
+msgid "`cmake-ninja <https://cmake.org/cmake/help/v3.0/generator/Ninja.html>`_"
+msgstr ""
+"`cmake-ninja <https://cmake.org/cmake/help/v3.0/generator/Ninja.html>`_"
+
+#: ../../manifests.rst:177
+msgid "`meson <https://mesonbuild.com/>`_"
+msgstr "`meson <https://mesonbuild.com/>`_"
+
+#: ../../manifests.rst:178
+msgid "`qmake <https://doc.qt.io/qt-5/qmake-overview.html>`_"
+msgstr "`qmake <https://doc.qt.io/qt-5/qmake-overview.html>`_"
+
+#: ../../manifests.rst:179
+msgid "the \"`Build API <https://github.com/cgwalters/build-api/>`_\""
+msgstr "\"`Build API <https://github.com/cgwalters/build-api/>`_\""
+
+#: ../../manifests.rst:181
+msgid ""
+"A \"simple\" build method is also available, which allows a series of "
+"commands to be specified."
+msgstr ""
+"Cũng có một phương thức xây dựng đơn giản là \"simple\", cho phép chỉ định "
+"một chuỗi các lệnh."
+
+#: ../../manifests.rst:185
+msgid "Shared Modules"
+msgstr "Shared Modules (Các mô-đun dùng chung)"
+
+#: ../../manifests.rst:187
+msgid ""
+"`Shared Modules (or shared-modules) <https://github.com/flathub/shared-"
+"modules>`_ is a repository containing various manifests to build common "
+"libraries. It is intended to be used as a git submodule."
+msgstr ""
+"'Shared Modules (hoặc shared-modules) <https://github.com/flathub/shared-"
+"modules>`_ là một repository chứa các tệp kê khai khác nhau để xây dựng các "
+"thư viện phổ biến. Nó được dự định để sử dụng như một git submodule."
+
+#: ../../manifests.rst:189
+msgid "To add it to your repository, run this command:"
+msgstr "Để thêm nó vào repository của bạn, hãy chạy lệnh này:"
+
+#: ../../manifests.rst:195
+msgid ""
+"Then, add whichever module you want. In this example, we will use `gtk2`:"
+msgstr ""
+"Sau đó, thêm bất kỳ mô-đun nào bạn muốn. Trong ví dụ này, chúng ta sẽ sử "
+"dụng `gtk2`:"
+
+#: ../../manifests.rst:202
+msgid "To update the submodule, run this command:"
+msgstr "Để cập nhật submodule, hãy chạy lệnh này:"
+
+#: ../../manifests.rst:208
+msgid "To remove the submodule, run these commands:"
+msgstr "Để loại bỏ submodule, hãy chạy các lệnh sau:"
+
+#: ../../manifests.rst:218
+msgid "Flatpak Builder Tools"
+msgstr "Flatpak Builder Tools"
+
+#: ../../manifests.rst:220
+msgid ""
+"`Flatpak Builder Tools (or flatpak-builder-tools) <https://github.com/"
+"flatpak/flatpak-builder-tools>`_ is a collection of scripts to aid using "
+"`flatpak-builder`. In this repository, each directory contains instructions "
+"to generate a manifest for the respective platform."
+msgstr ""
+"'Flatpak Builder Tools (hoặc flatpak-builder-tools) <https://github.com/"
+"flatpak/flatpak-builder-tools>`_ là một tập hợp các script để hỗ trợ sử dụng "
+"`flatpak-builder`. Trong repository này, mỗi thư mục chứa các hướng dẫn để "
+"tạo tệp kê khai cho nền tảng tương ứng."
+
+#: ../../manifests.rst:223
+msgid "Example manifests"
+msgstr "Các tệp kê khai mẫu"
+
+#: ../../manifests.rst:225
+msgid ""
+"A `complete manifest for GNOME Dictionary built from Git <https://github.com/"
+"flathub/org.gnome.Dictionary/blob/master/org.gnome.Dictionary.yml>`_. It is "
+"also possible to browse `all the manifests hosted by Flathub <https://github."
+"com/flathub>`_."
+msgstr ""
+"Một `tệp kê khai hoàn chỉnh cho GNOME Dictionary được xây dựng từ Git "
+"<https://github.com/flathub/org.gnome.Dictionary/blob/master/org.gnome."
+"Dictionary.yml>`_.Cũng có thể duyệt qua `tất cả các tệp kê khai được lưu trữ "
+"bởi Flathub <https://github.com/flathub>`_."
