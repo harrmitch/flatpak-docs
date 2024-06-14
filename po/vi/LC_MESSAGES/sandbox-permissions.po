@@ -1,0 +1,993 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024, Flatpak Team. Licensed under Creative Commons Attribution 4.0 International License.
+# This file is distributed under the same license as the Flatpak package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Flatpak\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-07 23:48+0700\n"
+"PO-Revision-Date: 2024-06-14 22:37+0700\n"
+"Last-Translator: Harry Mitchell <minhyh0987@gmail.com>\n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#: ../../sandbox-permissions.rst:2
+msgid "Sandbox Permissions"
+msgstr "Quyền hộp cát (Sandbox Permissions)"
+
+#: ../../sandbox-permissions.rst:4
+msgid ""
+"One of Flatpak's main goals is to increase the security of desktop systems "
+"by isolating applications from one another. This is achieved using "
+"sandboxing and means that, by default, applications that are run with "
+"Flatpak have extremely limited access to the host environment. This includes:"
+msgstr ""
+"Một trong những mục tiêu chính của Flatpak là tăng cường bảo mật cho các hệ "
+"thống desktop bằng cách cô lập các ứng dụng với nhau. Việc này được thực "
+"hiện bằng cách sử dụng hộp cát và có nghĩa là, theo mặc định, các ứng dụng "
+"được chạy với Flatpak có quyền truy cập cực kỳ hạn chế vào môi trường máy "
+"chủ. Nó bao gồm:"
+
+#: ../../sandbox-permissions.rst:9
+msgid ""
+"No access to any host files except the runtime, the app, ``~/.var/app/"
+"$FLATPAK_ID``, and ``$XDG_RUNTIME_DIR/app/$FLATPAK_ID``. Only the latter two "
+"being writable."
+msgstr ""
+"Không có quyền truy cập vào bất kỳ tệp máy chủ nào ngoại trừ runtime, chính "
+"ứng dụng, ``~/.var/app/$FLATPAK_ID`` và ``$XDG_RUNTIME_DIR/app/"
+"$FLATPAK_ID``. Chỉ có quyền viết cho hai cái thư mục cuối cùng (writable)."
+
+#: ../../sandbox-permissions.rst:12
+msgid "No access to the network."
+msgstr "Không có quyền truy cập vào mạng."
+
+#: ../../sandbox-permissions.rst:13
+msgid "No access to any device nodes (apart from ``/dev/null``, etc)."
+msgstr ""
+"Không có quyền truy cập vào bất kỳ tập tin thiết bị (device node) nào (ngoài "
+"``/dev/null``, v.v.)."
+
+#: ../../sandbox-permissions.rst:14
+msgid "No access to processes outside the sandbox."
+msgstr ""
+"Không có quyền truy cập vào các tiến trình (process) bên ngoài hộp cát."
+
+#: ../../sandbox-permissions.rst:15
+msgid ""
+"Limited syscalls.  For instance, apps can't use nonstandard network socket "
+"types or ptrace other processes."
+msgstr ""
+"Các lời gọi hệ thống (syscall) hạn chế. Ví dụ: các ứng dụng không thể sử "
+"dụng các loại cổng cắm mạng (network socket) không chuẩn hoặc thực hiện "
+"ptrace với các tiến trình khác."
+
+#: ../../sandbox-permissions.rst:17
+msgid ""
+"Limited access to the session D-Bus instance - an app can only own its own "
+"name on the bus."
+msgstr ""
+"Truy cập hạn chế vào session D-Bus instance (đối tượng D-Bus phiên) - một "
+"ứng dụng chỉ có thể sở hữu tên của chính nó trên bus."
+
+#: ../../sandbox-permissions.rst:19
+msgid "No access to host services like X11, system D-Bus, or PulseAudio."
+msgstr ""
+"Không có quyền truy cập vào các dịch vụ máy chủ như X11, hệ thống D-Bus, "
+"hoặc PulseAudio."
+
+#: ../../sandbox-permissions.rst:21
+msgid ""
+"Most applications will need access to some of these resources in order to be "
+"useful. This is primarily done during the finishing build stage, which can "
+"be configured through the ``finish-args`` section of the manifest file (see :"
+"doc:`manifests`)."
+msgstr ""
+"Hầu hết các ứng dụng sẽ cần truy cập vào một số tài nguyên này để có thể "
+"dùng được. Việc này chủ yếu được thực hiện trong giai đoạn hoàn thiện xây "
+"dựng (finishing build stage), có thể được cấu hình thông qua phần ``finish-"
+"args`` của tệp kê khai (xem :doc:`manifests`)."
+
+#: ../../sandbox-permissions.rst:27
+msgid "Portals"
+msgstr "Portals (Cổng)"
+
+#: ../../sandbox-permissions.rst:29
+msgid ""
+"Portals have already been mentioned in :doc:`basic-concepts`. They are a "
+"framework for providing access to resources outside of the sandbox, "
+"including:"
+msgstr ""
+"Portal đã được đề cập trong :doc:`basic-concepts`. Chúng là một framework "
+"cung cấp quyền truy cập vào các tài nguyên bên ngoài hộp cát, bao gồm:"
+
+#: ../../sandbox-permissions.rst:32
+msgid "Opening files with a native file chooser dialog"
+msgstr "Mở tệp bằng hộp thoại chọn tệp gốc (native file chooser dialog)"
+
+#: ../../sandbox-permissions.rst:33
+msgid "Opening URIs"
+msgstr "Mở URI"
+
+#: ../../sandbox-permissions.rst:34
+msgid "Printing"
+msgstr "In ấn"
+
+#: ../../sandbox-permissions.rst:35
+msgid "Showing notifications"
+msgstr "Hiển thị thông báo"
+
+#: ../../sandbox-permissions.rst:36
+msgid "Taking screenshots"
+msgstr "Chụp ảnh màn hình"
+
+#: ../../sandbox-permissions.rst:37
+msgid ""
+"Inhibiting the user session from ending, suspending, idling or getting "
+"switched away"
+msgstr ""
+"Ngăn user session khỏi ending (kết thúc), suspending (tạm dừng), idling "
+"(chạy không) hoặc switched away (bị chuyển đi)"
+
+#: ../../sandbox-permissions.rst:39
+msgid "Getting network status information"
+msgstr "Lấy thông tin trạng thái mạng"
+
+#: ../../sandbox-permissions.rst:41
+msgid ""
+"In many cases, portals use a system component to implicitly ask the user for "
+"permission before granting access to a particular resource. For example, in "
+"the case of opening a file, the user's selection of a file using the file "
+"chooser dialog is interpreted as implicitly granting the application access "
+"to whatever file is chosen."
+msgstr ""
+"Trong nhiều trường hợp, portals sử dụng một thành phần hệ thống để ngầm yêu "
+"cầu người dùng cho phép trước khi cấp quyền truy cập vào một tài nguyên cụ "
+"thể. Ví dụ: trong trường hợp mở tệp, việc người dùng lựa chọn tệp bằng hộp "
+"thoại chọn tệp được hiểu là ngầm cấp cho ứng dụng quyền truy cập vào bất kỳ "
+"tệp nào được chọn."
+
+#: ../../sandbox-permissions.rst:47
+msgid ""
+"This approach enables applications to avoid having to configure blanket "
+"access to large amounts of data or services and gives users control over "
+"what their applications have access to."
+msgstr ""
+"Hướng đi này cho phép các ứng dụng tránh phải cấu hình quyền truy cập chung "
+"(blanket access) vào một lượng lớn dữ liệu hoặc dịch vụ, và cho phép người "
+"dùng kiểm soát những gì ứng dụng của họ có quyền truy cập."
+
+#: ../../sandbox-permissions.rst:51
+msgid ""
+"Interface toolkits like GTK3 and Qt5 implement transparent support for "
+"portals, meaning that applications don't need to do any additional work to "
+"use them (it is worth checking which portals each toolkit supports). "
+"Applications that aren't using a toolkit with support for portals can refer "
+"to the `xdg-desktop-portal API documentation <https://flatpak.github.io/xdg-"
+"desktop-portal/>`_ for information on how to use them."
+msgstr ""
+"Các bộ công cụ giao diện như GTK3 và Qt5 thực hiện hỗ trợ minh bạch cho các "
+"portal, có nghĩa là các ứng dụng không cần phải thực hiện bất kỳ công việc "
+"bổ sung nào để sử dụng chúng (nên kiểm tra mỗi toolkit hỗ trợ các portal "
+"nào). Các ứng dụng không sử dụng toolkit có hỗ trợ cho portals có thể tham "
+"khảo `tài liệu API xdg-desktop-portal <https://flatpak.github.io/xdg-desktop-"
+"portal/>`_ để biết thông tin về cách sử dụng chúng."
+
+#: ../../sandbox-permissions.rst:60
+msgid "Permissions guidelines"
+msgstr "Nguyên tắc đề xuất về quyền (Permissions guidelines)"
+
+#: ../../sandbox-permissions.rst:62
+msgid ""
+"While application developers have control over the sandbox permissions they "
+"wish to configure, good practice is encouraged and can be enforced. For "
+"example, the Flathub hosting service places requirements on which "
+"permissions can be used, and software on the host may warn users if certain "
+"permissions are used."
+msgstr ""
+"Mặc dù các nhà phát triển ứng dụng có thể kiểm soát các quyền sandbox mà họ "
+"muốn cấu hình, khuyến khích thực thi một số thói quen tốt về việc đặt quyền. "
+"Ví dụ: dịch vụ lưu trữ Flathub đặt ra các yêu cầu về những quyền có thể được "
+"sử dụng và phần mềm trên máy chủ có thể cảnh báo người dùng nếu một số quyền "
+"nhất định được sử dụng."
+
+#: ../../sandbox-permissions.rst:68
+msgid ""
+"The following guidelines describe which permissions can be freely used, "
+"which can be used on an as-needed basis, and which should be avoided."
+msgstr ""
+"Các hướng dẫn sau đây mô tả các quyền nào có thể được sử dụng tự do, quyền "
+"nào chỉ nên sử dụng khi cần thiết và quyền nào nên tránh."
+
+#: ../../sandbox-permissions.rst:72
+msgid "Standard permissions"
+msgstr "Các quyền tiêu chuẩn"
+
+#: ../../sandbox-permissions.rst:74
+msgid ""
+"The following permissions provide access to basic resources that "
+"applications commonly require, and can therefore be freely used:"
+msgstr ""
+"Các quyền sau đây cung cấp quyền truy cập vào các tài nguyên cơ bản mà các "
+"ứng dụng thường yêu cầu và do đó có thể được sử dụng tự do:"
+
+#: ../../sandbox-permissions.rst:77
+msgid "``--allow=bluetooth`` - Allow access to Bluetooth"
+msgstr "``--allow=bluetooth`` - Cho phép truy cập vào Bluetooth"
+
+#: ../../sandbox-permissions.rst:78
+msgid "``--device=dri`` - OpenGL rendering"
+msgstr "``--device=dri`` - OpenGL rendering (kết xuất OpenGL)"
+
+#: ../../sandbox-permissions.rst:79
+msgid "``--device=input`` - Access to ``/dev/input``"
+msgstr "``--device=input`` - Truy cập vào ``/dev/input``"
+
+#: ../../sandbox-permissions.rst:80
+msgid "``--share=ipc`` - share IPC namespace with the host [#f1]_"
+msgstr ""
+"``--share=ipc`` - chia sẻ không gian tên IPC (IPC namespace) với máy chủ "
+"[#f1]_"
+
+#: ../../sandbox-permissions.rst:81
+msgid "``--share=network`` - access the network [#f2]_"
+msgstr "``--share=network`` - truy cập mạng [#f2]_"
+
+#: ../../sandbox-permissions.rst:82
+msgid "``--socket=cups`` - Talk to the CUPS printing system"
+msgstr "``--socket=cups`` - Nói chuyện với hệ thống in CUPS"
+
+#: ../../sandbox-permissions.rst:83
+msgid "``--socket=gpg-agent`` - Talk to the GPG agent"
+msgstr "``--socket=gpg-agent`` - Nói chuyện với GPG agent"
+
+#: ../../sandbox-permissions.rst:84
+msgid "``--socket=pcsc`` - Smart card access"
+msgstr "``--socket=pcsc`` - Truy cập thẻ thông minh (smart card)"
+
+#: ../../sandbox-permissions.rst:85
+msgid "``--socket=pulseaudio`` - Play sound with PulseAudio"
+msgstr "``--socket=pulseaudio`` - Phát âm thanh bằng PulseAudio"
+
+#: ../../sandbox-permissions.rst:86
+msgid "``--socket=ssh-auth``- Allow access to ``SSH_AUTH_SOCK``"
+msgstr "``--socket=ssh-auth``- Cho phép truy cập vào ``SSH_AUTH_SOCK``"
+
+#: ../../sandbox-permissions.rst:87
+msgid "``--socket=wayland`` - Show windows with Wayland"
+msgstr "``--socket=wayland`` - Hiển thị cửa sổ với Wayland"
+
+#: ../../sandbox-permissions.rst:88
+msgid "``--socket=x11`` - show windows using X11"
+msgstr "``--socket=x11`` - hiển thị cửa sổ bằng X11"
+
+#: ../../sandbox-permissions.rst:89
+msgid ""
+"``--socket=fallback-x11`` - show windows using X11, if Wayland is not "
+"available, overrides ``x11`` socket permission. Note that you must still use "
+"``--socket=wayland`` for wayland permission"
+msgstr ""
+"``--socket=fallback-x11`` - hiển thị các cửa sổ bằng X11 nếu Wayland không "
+"khả dụng, sẽ ghi đè quyền socket ``x11``. Lưu ý rằng bạn vẫn phải sử dụng "
+"``--socket=wayland`` để cho phép wayland"
+
+#: ../../sandbox-permissions.rst:95
+msgid ""
+"Applications that do not support native Wayland should use ``--socket=x11`` "
+"and applications that do should use ``--socket=fallback-x11`` and ``--"
+"socket=wayland``. The two configurations here will make it work on both X11 "
+"and Wayland sessions of the desktop environment."
+msgstr ""
+"Các ứng dụng không hỗ trợ gốc cho Wayland nên sử dụng ``--socket=x11`` và "
+"các ứng dụng có hỗ trợ nên sử dụng ``--socket=fallback-x11`` và ``--"
+"socket=wayland``. Hai cấu hình này sẽ làm cho nó hoạt động trên cả phiên X11 "
+"và Wayland của môi trường desktop."
+
+#: ../../sandbox-permissions.rst:101
+msgid "D-Bus access"
+msgstr "Truy cập D-Bus"
+
+#: ../../sandbox-permissions.rst:103
+msgid ""
+"Access to the entire bus with ``--socket=system-bus`` or ``--socket=session-"
+"bus`` is a security risk and must be avoided, unless the application is a "
+"development tool."
+msgstr ""
+"Truy cập vào toàn bộ bus với ``--socket=system-bus`` hoặc ``--socket=session-"
+"bus`` là một rủi ro bảo mật và phải tránh, trừ khi ứng dụng là một công cụ "
+"phát triển."
+
+#: ../../sandbox-permissions.rst:107
+msgid ""
+"``flatpak run --log-session-bus <appid>`` can be used to find the specific D-"
+"Bus permissions needed."
+msgstr ""
+"``flatpak run --log-session-bus <appid>`` có thể được sử dụng để tìm các "
+"quyền D-Bus cụ thể cần thiết."
+
+#: ../../sandbox-permissions.rst:110
+msgid "**Ownership**"
+msgstr "**Quyền sở hữu**"
+
+#: ../../sandbox-permissions.rst:112
+msgid ""
+"Applications are automatically granted access to their own namespace. "
+"Ownership beyond this is typically unnecessary, although there are a small "
+"number of exceptions, such as using `MPRIS to provide media controls "
+"<https://www.freedesktop.org/wiki/Specifications/mpris-spec/>`_."
+msgstr ""
+"Các ứng dụng được tự động cấp quyền truy cập vào không gian tên của chính "
+"chúng. Quyền sở hữu ngoài phạm vi này thường không cần thiết, mặc dù có một "
+"số ít trường hợp ngoại lệ, chẳng hạn như sử dụng `MPRIS để cung cấp kiểm "
+"soát phương tiện <https://www.freedesktop.org/wiki/Specifications/mpris-spec/"
+">`_."
+
+#: ../../sandbox-permissions.rst:117
+msgid "**Talk**"
+msgstr "**Quyền nói chuyện**"
+
+#: ../../sandbox-permissions.rst:119
+msgid ""
+"Talk permissions can be freely used, although it is recommended to use the "
+"minimum required."
+msgstr ""
+"Quyền nói chuyện có thể được sử dụng tự do, mặc dù bạn nên sử dụng mức tối "
+"thiểu cần thiết."
+
+#: ../../sandbox-permissions.rst:123
+msgid "Filesystem access"
+msgstr "Truy cập hệ thống tệp"
+
+#: ../../sandbox-permissions.rst:125
+msgid ""
+"As a general rule, static and permanent filesystem access should be limited "
+"as much as possible. This includes:"
+msgstr ""
+"Theo nguyên tắc chung, quyền truy cập tĩnh (static) và vĩnh viễn (permanent) "
+"vào hệ thống tệp nên được hạn chế tối đa. Thực hiện việc này thông qua:"
+
+#: ../../sandbox-permissions.rst:128
+msgid ""
+"Using portals as an alternative to blanket filesystem access, wherever "
+"possible."
+msgstr ""
+"Sử dụng portals thay thế cho quyền truy cập hệ thống tệp chung (blanket "
+"access) bất cứ khi nào có thể."
+
+#: ../../sandbox-permissions.rst:130
+msgid "Using read-only access wherever possible, using the ``:ro`` option."
+msgstr ""
+"Sử dụng quyền truy cập chỉ đọc bất cứ khi nào có thể, sử dụng tùy chọn ``: "
+"ro``."
+
+#: ../../sandbox-permissions.rst:131
+msgid ""
+"If some home directory access is absolutely required, using XDG directory "
+"access only."
+msgstr ""
+"Nếu truy cập home directory là hoàn toàn cần thiết, chỉ truy cập thư mục XDG."
+
+#: ../../sandbox-permissions.rst:134
+msgid "The following permission options are available:"
+msgstr "Các tùy chọn quyền sau đây có sẵn:"
+
+#: ../../sandbox-permissions.rst:136
+msgid "``:ro`` - read-only access"
+msgstr "``:ro`` - truy cập chỉ đọc"
+
+#: ../../sandbox-permissions.rst:137
+msgid ""
+"``:create`` - read/write access, and create the directory if it doesn't exist"
+msgstr "``:create`` - truy cập đọc/viết và tạo thư mục nếu nó không tồn tại"
+
+#: ../../sandbox-permissions.rst:140
+msgid "Additionally the following permissions are available:"
+msgstr "Ngoài ra, các quyền sau đây cũng có sẵn:"
+
+#: ../../sandbox-permissions.rst:143
+msgid "``host``"
+msgstr "``host``"
+
+#: ../../sandbox-permissions.rst:143
+msgid ""
+"Access to ``/home, /media, /opt, /run/media, /srv`` and everything provided "
+"by ``host-os, host-etc`` mounted in ``/run/host``"
+msgstr ""
+"Truy cập vào ``/home, /media, /opt, /run/media, /srv`` và mọi thứ được cung "
+"cấp bởi ``host-os, host-etc`` mounted trong ``/run/host``"
+
+#: ../../sandbox-permissions.rst:143 ../../sandbox-permissions.rst:147
+#: ../../sandbox-permissions.rst:148
+msgid "Includes any subpaths"
+msgstr "Bao gồm bất kỳ đường dẫn con nào"
+
+#: ../../sandbox-permissions.rst:144
+msgid "``host-etc``"
+msgstr "``host-etc``"
+
+#: ../../sandbox-permissions.rst:144
+msgid "Host's ``/etc``"
+msgstr "``/etc`` của máy chủ"
+
+#: ../../sandbox-permissions.rst:144
+msgid "Host's ``/etc`` is mounted at ``/run/host/etc``"
+msgstr "``/etc`` của máy chủ được mounted tại ``/run/host/etc``"
+
+#: ../../sandbox-permissions.rst:145
+msgid "``host-os``"
+msgstr "``host-os``"
+
+#: ../../sandbox-permissions.rst:145
+msgid ""
+"Host's ``/usr, /bin, /sbin, /lib{32, 64}, /etc/ld.so.cache, /etc/"
+"alternatives``"
+msgstr ""
+"``/usr, /bin, /sbin, /lib{32, 64}, /etc/ld.so.cache, /etc/alternatives`` của "
+"máy chủ"
+
+#: ../../sandbox-permissions.rst:145
+msgid "Mounted at ``/run/host``"
+msgstr "Được mounted tại ``/run/host``"
+
+#: ../../sandbox-permissions.rst:146
+msgid "``home``"
+msgstr "``home``"
+
+#: ../../sandbox-permissions.rst:146
+msgid "Access the home directory"
+msgstr "Truy cập home directory"
+
+#: ../../sandbox-permissions.rst:146
+msgid "Except ``~/.var/app``"
+msgstr "Ngoại trừ ``~/.var/app``"
+
+#: ../../sandbox-permissions.rst:147
+msgid "``/some/dir``"
+msgstr "``/some/dir``"
+
+#: ../../sandbox-permissions.rst:147
+msgid "Access an arbitrary path except any reserved path"
+msgstr ""
+"Truy cập một đường dẫn tùy ý ngoại trừ bất kỳ đường dẫn dành riêng (reserved "
+"path) nào"
+
+#: ../../sandbox-permissions.rst:148
+msgid "``~/some/dir``"
+msgstr "``~/some/dir``"
+
+#: ../../sandbox-permissions.rst:148
+msgid "Arbitrary path relative to the home directory"
+msgstr "Đường dẫn tương đối so với home directory tùy ý"
+
+#: ../../sandbox-permissions.rst:149
+msgid "``xdg-desktop``"
+msgstr "``xdg-desktop``"
+
+#: ../../sandbox-permissions.rst:149
+msgid "Access the XDG desktop directory"
+msgstr "Truy cập thư mục XDG desktop"
+
+#: ../../sandbox-permissions.rst:149
+msgid "``$XDG_DESKTOP_DIR`` or ``$HOME/Desktop``"
+msgstr "``$XDG_DESKTOP_DIR`` hoặc ``$HOME/Desktop``"
+
+#: ../../sandbox-permissions.rst:150
+msgid "``xdg-documents``"
+msgstr "``xdg-documents``"
+
+#: ../../sandbox-permissions.rst:150
+msgid "Access the XDG documents directory"
+msgstr "Truy cập thư mục tài liệu XDG"
+
+#: ../../sandbox-permissions.rst:150
+msgid "``$XDG_DOCUMENTS_DIR`` or ``$HOME/Documents``"
+msgstr "``$XDG_DOCUMENTS_DIR`` hoặc ``$HOME/Documents``"
+
+#: ../../sandbox-permissions.rst:151
+msgid "``xdg-download``"
+msgstr "``xdg-download``"
+
+#: ../../sandbox-permissions.rst:151
+msgid "Access the XDG download directory"
+msgstr "Truy cập thư mục tải xuống XDG"
+
+#: ../../sandbox-permissions.rst:151
+msgid "``$XDG_DOWNLOAD_DIR`` or ``$HOME/Downloads``"
+msgstr "``$XDG_DOWNLOAD_DIR`` hoặc ``$HOME/Downloads``"
+
+#: ../../sandbox-permissions.rst:152
+msgid "``xdg-music``"
+msgstr "``xdg-music``"
+
+#: ../../sandbox-permissions.rst:152
+msgid "Access the XDG music directory"
+msgstr "Truy cập thư mục âm nhạc XDG"
+
+#: ../../sandbox-permissions.rst:152
+msgid "``$XDG_MUSIC_DIR`` or ``$HOME/Music``"
+msgstr "``$XDG_MUSIC_DIR`` hoặc ``$HOME/Music``"
+
+#: ../../sandbox-permissions.rst:153
+msgid "``xdg-pictures``"
+msgstr "``xdg-pictures``"
+
+#: ../../sandbox-permissions.rst:153
+msgid "Access the XDG pictures directory"
+msgstr "Truy cập thư mục ảnh XDG"
+
+#: ../../sandbox-permissions.rst:153
+msgid "``$XDG_PICTURES_DIR`` or ``$HOME/Pictures``"
+msgstr "``$XDG_PICTURES_DIR`` hoặc ``$HOME/Pictures``"
+
+#: ../../sandbox-permissions.rst:154
+msgid "``xdg-public-share``"
+msgstr "``xdg-public-share``"
+
+#: ../../sandbox-permissions.rst:154
+msgid "Access the XDG public directory"
+msgstr "Truy cập thư mục công cộng XDG"
+
+#: ../../sandbox-permissions.rst:154
+msgid "``$XDG_PUBLICSHARE_DIR`` or ``$HOME/Public``"
+msgstr "``$XDG_PUBLICSHARE_DIR`` hoặc ``$HOME/Public``"
+
+#: ../../sandbox-permissions.rst:155
+msgid "``xdg-videos``"
+msgstr "``xdg-videos``"
+
+#: ../../sandbox-permissions.rst:155
+msgid "Access the XDG videos directory"
+msgstr "Truy cập thư mục video XDG"
+
+#: ../../sandbox-permissions.rst:155
+msgid "``$XDG_VIDEOS_DIR`` or ``$HOME/Videos``"
+msgstr "``$XDG_VIDEOS_DIR`` hoặc ``$HOME/Videos``"
+
+#: ../../sandbox-permissions.rst:156
+msgid "``xdg-templates``"
+msgstr "``xdg-templates``"
+
+#: ../../sandbox-permissions.rst:156
+msgid "Access the XDG templates directory"
+msgstr "Truy cập thư mục mẫu XDG"
+
+#: ../../sandbox-permissions.rst:156
+msgid "``$XDG_TEMPLATES_DIR`` or ``$HOME/Templates``"
+msgstr "``$XDG_TEMPLATES_DIR`` hoặc ``$HOME/Templates``"
+
+#: ../../sandbox-permissions.rst:157
+msgid "``xdg-config``"
+msgstr "``xdg-config``"
+
+#: ../../sandbox-permissions.rst:157
+msgid "Access the XDG config directory [#f3]_"
+msgstr "Truy cập thư mục cấu hình XDG [#f3]_"
+
+#: ../../sandbox-permissions.rst:157
+msgid "``$XDG_CONFIG_HOME`` or ``$HOME/.config``"
+msgstr "``$XDG_CONFIG_HOME`` hoặc ``$HOME/.config``"
+
+#: ../../sandbox-permissions.rst:158
+msgid "``xdg-cache``"
+msgstr "``xdg-cache``"
+
+#: ../../sandbox-permissions.rst:158
+msgid "Access the XDG cache directory  [#f3]_"
+msgstr "Truy cập thư mục bộ nhớ đệm XDG [#f3]_"
+
+#: ../../sandbox-permissions.rst:158
+msgid "``$XDG_CACHE_HOME`` or ``$HOME/.cache``"
+msgstr "``$XDG_CACHE_HOME`` hoặc ``$HOME/.cache``"
+
+#: ../../sandbox-permissions.rst:159
+msgid "``xdg-data``"
+msgstr "``xdg-data``"
+
+#: ../../sandbox-permissions.rst:159
+msgid "Access the XDG data directory   [#f3]_"
+msgstr "Truy cập thư mục dữ liệu XDG [#f3]_"
+
+#: ../../sandbox-permissions.rst:159
+msgid "``$XDG_DATA_HOME`` or ``$HOME/.local/share``"
+msgstr "``$XDG_DATA_HOME`` hoặc ``$HOME/.local/share``"
+
+#: ../../sandbox-permissions.rst:160
+msgid "``xdg-run/path``"
+msgstr "``xdg-run/path``"
+
+#: ../../sandbox-permissions.rst:160
+msgid "Access subdirectories of the XDG runtime directory"
+msgstr "Truy cập các thư mục con của thư mục runtime XDG"
+
+#: ../../sandbox-permissions.rst:160
+msgid "``$XDG_RUNTIME_DIR/path`` (``/run/user/$UID/path``)"
+msgstr "``$XDG_RUNTIME_DIR/path`` (``/run/user/$UID/path``)"
+
+#: ../../sandbox-permissions.rst:163
+msgid ""
+"Except ``host, host-etc, host-os`` paths can be added to all the above "
+"filesystem options. For example, ``--filesystem=xdg-documents/path``."
+msgstr ""
+"Ngoại trừ ``host, host-etc, host-os``, các đường dẫn có thể được thêm vào "
+"tất cả các tùy chọn hệ thống tệp ở trên. Ví dụ: ``--filesystem=xdg-documents/"
+"path``."
+
+#: ../../sandbox-permissions.rst:166
+msgid "Other filesystem access guidelines include:"
+msgstr "Các nguyên tắc truy cập hệ thống tệp khác bao gồm:"
+
+#: ../../sandbox-permissions.rst:168
+msgid ""
+"The ``--persist=DIR`` option can be used to map directories from the user's "
+"home directory into the sandbox filesystem. This only works if the "
+"application has no ``home`` or a broader permission like ``host`` that "
+"includes ``home``."
+msgstr ""
+"Tùy chọn ``--persist=DIR`` có thể được sử dụng để ánh xạ (map) các thư mục "
+"từ home directory của người dùng vào hệ thống tệp hộp cát. Nó chỉ hoạt động "
+"nếu ứng dụng không có ``home`` hoặc một quyền rộng hơn (như ``host``) mà bao "
+"gồm ``home``."
+
+#: ../../sandbox-permissions.rst:173
+msgid ""
+"For example, if an application hardcodes the directory ``~/.foo``, without "
+"any ``home`` access and no ``--persist`` the directory will be lost from the "
+"sandbox once exited due to the filesystem being set up as tmpfs by flatpak "
+"unless overriden. A ``--persist=.foo`` bind mounts ``~/.foo`` `inside the "
+"sandbox` to ``~/.var/app/$FLATPAK_ID/.foo`` on host thus allowing an app to "
+"persistently store data in ``~/.var/app/$FLATPAK_ID/.foo`` which would "
+"otherwise be lost."
+msgstr ""
+"Ví dụ: nếu một ứng dụng hardcode thư mục ``~/.foo``, không có bất kỳ quyền "
+"truy cập ``home`` nào và không có `--persist`, thư mục này sẽ bị mất khỏi "
+"hộp cát sau khi thoát do hệ thống tệp được thiết lập dưới dạng tmpfs bởi "
+"flatpak trừ khi bị ghi đè. ``--persist=.foo`` sẽ mount ``~/.foo`` `bên trong "
+"hộp cát` thành ``~/.var/app/$FLATPAK_ID/.foo`` trên máy chủ, do đó cho phép "
+"ứng dụng lưu trữ dữ liệu lâu dài (persistent) trong ``~/.var/app/"
+"$FLATPAK_ID/.foo``, mà nếu không sẽ bị mất."
+
+#: ../../sandbox-permissions.rst:181
+msgid "A ``--persist=.`` will `persist` all directories."
+msgstr "``--persist=.`` sẽ `persist` tất cả các thư mục."
+
+#: ../../sandbox-permissions.rst:183
+msgid ""
+"This does not support ``:create, :ro, :rw`` suffixes or special values like "
+"``xdg-documents``. However, the directory will be created by flatpak if it "
+"doesn't already exist."
+msgstr ""
+"Nó không hỗ trợ các hậu tố ``:create, :ro, : rw`` hoặc các giá trị đặc biệt "
+"như ``xdg-documents``. Tuy nhiên, thư mục sẽ được tạo bởi flatpak nếu nó "
+"chưa tồn tại."
+
+#: ../../sandbox-permissions.rst:187
+msgid ""
+"This makes it possible to avoid configuring access to the entire home "
+"directory, and can be useful for applications that hardcode file paths in "
+"``~/``."
+msgstr ""
+"Nó giúp tránh phải cấu hình truy cập vào toàn bộ home directory, và có thể "
+"hữu ích cho các ứng dụng mà hardcode các đường dẫn tệp trong ``~/``."
+
+#: ../../sandbox-permissions.rst:190
+msgid ""
+"If an application uses ``$TMPDIR`` to contain lock files you may want to add "
+"a wrapper script that sets it to ``$XDG_RUNTIME_DIR/app/$FLATPAK_ID`` "
+"(tmpfs) or ``/var/tmp`` (persistent on host)."
+msgstr ""
+"Nếu một ứng dụng sử dụng ``$TMPDIR`` để chứa lock files (các tệp khóa), bạn "
+"có thể đặt nó thành ``$XDG_RUNTIME_DIR/app/$FLATPAK_ID`` (tmpfs) hoặc ``/var/"
+"tmp`` (lâu dài trên máy chủ) qua việc sử dụng một wrapper script."
+
+#: ../../sandbox-permissions.rst:194
+msgid ""
+"Retaining and sharing configuration with non-Flatpak installations is to be "
+"avoided."
+msgstr ""
+"Việc giữ lại và chia sẻ cấu hình với các ứng dụng không phải Flatpak là điều "
+"cần tránh."
+
+#: ../../sandbox-permissions.rst:198
+msgid "Reserved Paths"
+msgstr "Các đường dẫn dành riêng (Reserved Paths)"
+
+#: ../../sandbox-permissions.rst:200
+msgid ""
+"The following paths are reserved for the runtime and Flatpak itself and are "
+"never shared::"
+msgstr ""
+"Các đường dẫn sau đây được dành riêng cho runtime và chính Flatpak và không "
+"bao giờ được chia sẻ::"
+
+#: ../../sandbox-permissions.rst:205
+msgid "Some subpaths of ``/run`` are allowed but not the entire directory."
+msgstr ""
+"Một số đường dẫn con của ``/run`` được cho phép nhưng không phải toàn bộ thư "
+"mục."
+
+#: ../../sandbox-permissions.rst:207
+msgid ""
+"Additionally the following directories from host need to be explicitly "
+"requested with ``--filesystem`` and are not available with ``home, host, "
+"host-os, host-etc`` by default:"
+msgstr ""
+"Ngoài ra, các thư mục sau đây từ máy chủ mà theo mặc định không được trao "
+"quyền truy cập qua ``home, host, host-os, host-etc`` thì cần được yêu cầu rõ "
+"ràng với ``--filesystem`` :"
+
+#: ../../sandbox-permissions.rst:211
+msgid ""
+"``~/.var/app`` - The app can access only its own directory in ``~/.var/app/"
+"$FLATPAK_ID``"
+msgstr ""
+"``~/.var/app`` - Ứng dụng chỉ có thể truy cập thư mục riêng của nó trong "
+"``~/.var/app/$FLATPAK_ID``"
+
+#: ../../sandbox-permissions.rst:212
+msgid "``$XDG_DATA_HOME/flatpak`` (``~/.local/share/flatpak``)"
+msgstr "``$XDG_DATA_HOME/flatpak`` (``~/.local/share/flatpak``)"
+
+#: ../../sandbox-permissions.rst:213
+msgid "``/boot``"
+msgstr "``/boot``"
+
+#: ../../sandbox-permissions.rst:214
+msgid "``/efi``"
+msgstr "``/efi``"
+
+#: ../../sandbox-permissions.rst:215
+msgid "``/root``"
+msgstr "``/root``"
+
+#: ../../sandbox-permissions.rst:216
+msgid "``/sys``"
+msgstr "``/sys``"
+
+#: ../../sandbox-permissions.rst:217
+msgid "``/tmp``"
+msgstr "``/tmp``"
+
+#: ../../sandbox-permissions.rst:218
+msgid ""
+"``/var`` - Note that by default ``/var/{cache, config, data, tmp}`` inside "
+"the sandbox are the same as ``~/.var/app/$FLATPAK_ID/{cache, config, data, "
+"cache/tmp}``. However an explicit ``--filesystem=/var`` will make only ``/"
+"var`` from host available and those will no longer be available."
+msgstr ""
+"``/var`` - Lưu ý rằng theo mặc định ``/var/{cache, config, data, tmp}`` bên "
+"trong hộp cát chính là ``~/.var/app/$FLATPAK_ID/{cache, config, data, cache/"
+"tmp}``. Tuy nhiên, sử dụng ``--filesystem=/var`` sẽ làm cho ``/var`` từ máy "
+"chủ có sẵn và vì thế các đường dẫn trên sẽ không còn khả dụng nữa."
+
+#: ../../sandbox-permissions.rst:222
+msgid "``/var/lib/flatpak`` - ``/var`` does not give access to this."
+msgstr ""
+"``/var/lib/flatpak`` - ``/var`` không cấp quyền truy cập cho thư mục này."
+
+#: ../../sandbox-permissions.rst:225
+msgid "Device access"
+msgstr "Truy cập thiết bị"
+
+#: ../../sandbox-permissions.rst:227
+msgid ""
+"While not ideal, ``--device=all`` can be used to access devices like "
+"controllers or webcams."
+msgstr ""
+"Mặc dù không lý tưởng, ``--device=all`` có thể được sử dụng để truy cập các "
+"thiết bị như bộ điều khiển (controller) hoặc webcam."
+
+#: ../../sandbox-permissions.rst:231
+msgid "dconf access"
+msgstr "Truy cập dconf"
+
+#: ../../sandbox-permissions.rst:233
+msgid ""
+"As of xdg-desktop-portal 1.1.0 and glib 2.60.5 (in the runtime) you do not "
+"need direct DConf access in most cases."
+msgstr ""
+"Kể từ xdg-desktop-portal 1.1.0 và glib 2.60.5 (trong runtime), bạn không cần "
+"quyền truy cập DConf trực tiếp trong hầu hết các trường hợp."
+
+#: ../../sandbox-permissions.rst:236
+msgid ""
+"As of now this glib version is included in ``org.freedesktop."
+"Platform//19.08`` and ``org.gnome.Platform//3.34`` and newer."
+msgstr ""
+"Hiện tại, phiên bản glib này được bao gồm trong ``org.freedesktop."
+"Platform//19.08`` và ``org.gnome.Platform//3.34`` và mới hơn."
+
+#: ../../sandbox-permissions.rst:239
+msgid ""
+"If an application existed prior to these runtimes you can tell Flatpak (>= "
+"1.3.4) to migrate the DConf settings on the host into the sandbox by adding "
+"``--metadata=X-DConf=migrate-path=/org/example/foo/`` to ``finish-args``. "
+"The path must be similar to your app-id or it will not be allowed (case is "
+"ignored and ``_`` and ``-`` are treated equal)."
+msgstr ""
+"Nếu một ứng dụng tồn tại trước những runtime này, bạn có thể yêu cầu Flatpak "
+"(>= 1.3.4) di chuyển cài đặt DConf trên máy chủ vào hộp cát bằng cách thêm "
+"``--metadata=X-DConf=migrate-path=/org/example/foo/`` vào ``finish-args``. "
+"Đường dẫn phải tương tự như định danh ứng dụng của bạn, nếu không sẽ không "
+"được cho phép (viết hoa hay viết thường, và ``_`` hay ``-`` là như nhau)."
+
+#: ../../sandbox-permissions.rst:246
+msgid ""
+"If you are targeting older runtimes or require direct DConf access for other "
+"reasons you can use these permissions::"
+msgstr ""
+"Nếu bạn đang nhắm đến runtime cũ hơn hoặc yêu cầu quyền truy cập DConf trực "
+"tiếp vì các lý do khác, bạn có thể sử dụng các quyền sau::"
+
+#: ../../sandbox-permissions.rst:254
+msgid "With those permissions glib will continue using dconf directly."
+msgstr "Với những quyền đó, glib sẽ tiếp tục sử dụng dconf trực tiếp."
+
+#: ../../sandbox-permissions.rst:256
+msgid ""
+"If you use a newer runtime where dconf is no longer built and still need it "
+"you will have to build the `dconf <https://download.gnome.org/sources/dconf/"
+">`_ GIO module and set ``--env=GIO_EXTRA_MODULES=/app/lib/gio/modules/``."
+msgstr ""
+"Nếu bạn sử dụng runtime mới hơn mà dconf không còn được xây dựng và bạn vẫn "
+"cần nó, bạn sẽ phải xây dựng mô-đun GIO `dconf <https://download.gnome.org/"
+"sources/dconf/>`_ và đặt ``--env=GIO_EXTRA_MODULES=/app/lib/gio/modules/``."
+
+#: ../../sandbox-permissions.rst:261
+msgid "gvfs access"
+msgstr "Truy cập gvfs"
+
+#: ../../sandbox-permissions.rst:263
+msgid ""
+"As of gvfs 1.48, the gvfs daemons and applications use an on-disk socket to "
+"communicate, rather than an abstract socket so that the gvfs infrastructure "
+"still works when network support is disabled in the application's sandbox."
+msgstr ""
+"Kể từ gvfs 1.48, các daemon (trình nền) và ứng dụng gvfs sử dụng on-disk "
+"socket để liên lạc thay vì một socket trừu tượng để gvfs vẫn hoạt động khi "
+"hỗ trợ mạng bị tắt trong hộp cát của ứng dụng."
+
+#: ../../sandbox-permissions.rst:267
+msgid ""
+"A number of different options need to be passed depending on the "
+"application's use of gvfs."
+msgstr ""
+"Một số tùy chọn khác nhau cần được đưa qua tùy thuộc vào cách của ứng dụng "
+"sử dụng gvfs."
+
+#: ../../sandbox-permissions.rst:270
+msgid ""
+"``--talk-name=org.gtk.vfs.*`` is necessary to talk to the gvfs daemons over "
+"D-Bus and list mounts using the GIO APIs."
+msgstr ""
+"``--talk-name=org.gtk.vfs.*`` là cần thiết để nói chuyện với các gvfs daemon "
+"qua D-Bus và liệt kê các mount bằng GIO API."
+
+#: ../../sandbox-permissions.rst:273
+msgid ""
+"``--filesystem=xdg-run/gvfsd`` is necessary to use the GIO APIs to list and "
+"access non-native files using the GIO APIs, using URLs rather than FUSE "
+"paths."
+msgstr ""
+"``--filesystem=xdg-run/gvfsd`` là cần thiết để sử dụng GIO API để liệt kê và "
+"truy cập các tệp non-native sử dụng URL thay vì đường dẫn FUSE."
+
+#: ../../sandbox-permissions.rst:276
+msgid ""
+"``--filesystem=xdg-run/gvfs`` is necessary to give access to the FUSE mounts "
+"non-GIO and legacy applications can use. This is what will make native files "
+"appear under ``/run/user/`id -u`/gvfs/``."
+msgstr ""
+"``--filesystem=xdg-run/gvfs`` là cần thiết để cấp quyền truy cập vào các "
+"mount FUSE mà các ứng dụng không phải GIO và các ứng dụng cũ (legacy) có thể "
+"sử dụng. Nó sẽ làm cho các tệp native xuất hiện trong ``/run/user/`id -u`/"
+"gvfs/``."
+
+#: ../../sandbox-permissions.rst:280
+msgid "Typical GNOME and GTK applications should use::"
+msgstr "Các ứng dụng GNOME và GTK điển hình nên sử dụng::"
+
+#: ../../sandbox-permissions.rst:285
+msgid "Typical non-GNOME and non-GTK applications should use::"
+msgstr ""
+"Các ứng dụng không phải GNOME và không phải GTK điển hình nên sử dụng::"
+
+#: ../../sandbox-permissions.rst:289
+msgid ""
+"No application should be using ``--talk-name=org.gtk.vfs`` in its manifest, "
+"as there are no D-Bus services named ``org.gtk.vfs``."
+msgstr ""
+"Không có ứng dụng nào nên sử dụng ``--talk-name=org.gtk.vfs`` trong tệp kê "
+"khai của nó, vì không có dịch vụ D-Bus nào có tên ``org.gtk.vfs``."
+
+#: ../../sandbox-permissions.rst:293
+msgid "External drive access"
+msgstr "Truy cập ổ đĩa ngoài"
+
+#: ../../sandbox-permissions.rst:295
+msgid ""
+"External drives are mounted by the host system using systemd, udev, udisk "
+"fstab etc. and each of them can have different defaults. Flatpak has no "
+"control over how and where they get mounted. The following filesystem "
+"permissions should work in most cases::"
+msgstr ""
+"Ổ đĩa ngoài được mount bởi hệ thống máy chủ bằng cách sử dụng systemd, udev, "
+"udisk fstab, v.v. và từng cái có thể có các mặc định khác nhau. Flatpak "
+"không kiểm soát cách thức và nơi chúng được mount. Các quyền hệ thống tệp "
+"sau đây sẽ hoạt động trong hầu hết các trường hợp::"
+
+#: ../../sandbox-permissions.rst:304
+msgid ""
+"If ``--filesystem=host`` is used ``/media, /run/media`` is shared "
+"automatically if they exist."
+msgstr ""
+"Nếu ``--filesystem=host`` được sử dụng, ``/media, /run/media`` được chia sẻ "
+"tự động nếu chúng tồn tại."
+
+#: ../../sandbox-permissions.rst:307
+msgid ""
+"Note that these should not have subpaths in them unless the value of the "
+"subpath can be consistently pre-determined. Block device naming depends on "
+"the kernel/fstab configuration and cannot be pre-determined."
+msgstr ""
+"Lưu ý rằng chúng không nên có đường dẫn con trong đó trừ khi giá trị của "
+"đường dẫn con có thể được xác định trước một cách nhất quán. Việc đặt tên "
+"thiết bị khối (block device) phụ thuộc vào cấu hình kernel/fstab và không "
+"thể được xác định trước."
+
+#: ../../sandbox-permissions.rst:312
+msgid "Footnotes"
+msgstr "Chú thích"
+
+#: ../../sandbox-permissions.rst:313
+msgid ""
+"This is not necessarily required, but without it the X11 shared memory "
+"extension will not work, which is very bad for X11 performance."
+msgstr ""
+"Nó không nhất thiết là bắt buộc, nhưng nếu không có nó, phần mở rộng bộ nhớ "
+"chia sẻ X11 sẽ không hoạt động, điều này rất xấu cho hiệu suất X11."
+
+#: ../../sandbox-permissions.rst:315
+msgid ""
+"Giving network access also grants access to all host services listening on "
+"abstract Unix sockets (due to how network namespaces work), and these have "
+"no permission checks. This unfortunately affects e.g. the X server and the "
+"session bus which listens to abstract sockets by default. A secure "
+"distribution should disable these and just use regular sockets."
+msgstr ""
+"Cấp quyền truy cập mạng cũng cấp quyền truy cập vào tất cả các dịch vụ máy "
+"chủ đang nghe trên các abstract Unix socket (do cách các namespace mạng hoạt "
+"động) và chúng không có kiểm tra quyền. Điều này không may ảnh hưởng đến ví "
+"dụ: máy chủ X và bus phiên đang nghe các abstract socket theo mặc định. Một "
+"bản phân phối an toàn nên vô hiệu hóa những thứ này và chỉ sử dụng các "
+"socket thông thường."
+
+#: ../../sandbox-permissions.rst:320
+msgid ""
+"``xdg-{cache, config, data}`` bind mounts the paths from host to the per-app "
+"sandbox directory. Inside the sandbox ``$XDG_CACHE_HOME``, "
+"``$XDG_CONFIG_HOME`` and ``$XDG_DATA_HOME`` is set to ``$HOME/.var/app/"
+"$FLATPAK_ID/{cache, config, data}`` respectively. So for example, ``xdg-data/"
+"applications`` ie. ``$XDG_DATA_HOME/applications`` on host is bind mounted "
+"to ``$HOME/.var/app/$FLATPAK_ID/data/applications`` (inside the sandbox this "
+"is ``$XDG_DATA_HOME/applications``). Additionally it'll have two mount "
+"points - one expanded to ``$XDG_DATA_HOME/applications`` from the host and "
+"another to the sandbox's ``$XDG_DATA_HOME/applications`` ie. ``$HOME/.var/"
+"app/$FLATPAK_ID/data/applications``."
+msgstr ""
+"``xdg-{cache, config, data}`` mount các đường dẫn từ máy chủ đến thư mục hộp "
+"cát của mỗi ứng dụng. Bên trong hộp cát, ``$XDG_CACHE_HOME``, "
+"``$XDG_CONFIG_HOME`` và ``$XDG_DATA_HOME`` tương ứng được đặt thành ``$HOME/."
+"var/app/$FLATPAK_ID/{cache, config, data}``. Ví dụ: ``xdg-data/"
+"applications`` (hay chính là``$XDG_DATA_HOME/applications``) trên máy chủ "
+"được mount với ``$HOME/.var/app/$FLATPAK_ID/data/applications`` (bên trong "
+"sandbox đây là ``$XDG_DATA_HOME/applications``). Ngoài ra, nó sẽ có hai điểm "
+"mount (mount points) - một điểm được mở rộng thành ``$XDG_DATA_HOME/"
+"applications`` từ máy chủ và một điểm thành ``$XDG_DATA_HOME/applications`` "
+"(hay chính là ``$HOME/.var/app/$FLATPAK_ID/data/applications``)."
