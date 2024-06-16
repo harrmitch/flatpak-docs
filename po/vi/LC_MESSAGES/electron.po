@@ -1,0 +1,530 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024, Flatpak Team. Licensed under Creative Commons Attribution 4.0 International License.
+# This file is distributed under the same license as the Flatpak package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Flatpak\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-07 23:48+0700\n"
+"PO-Revision-Date: 2024-06-16 13:27+0700\n"
+"Last-Translator: Harry Mitchell <minhyh0987@gmail.com>\n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#: ../../electron.rst:2
+msgid "Electron"
+msgstr "Electron"
+
+#: ../../electron.rst:4
+msgid ""
+"Due to the nature of Electron, building Electron applications as Flatpaks "
+"requires a few extra steps compared with other applications. Thankfully, "
+"several tools and resources are available which make this much easier."
+msgstr ""
+"Do bản chất của Electron nên việc xây dựng các ứng dụng Electron dưới dạng "
+"Flatpak yêu cầu thêm một vài bước so với các ứng dụng khác. Rất may, có sẵn "
+"một số công cụ và tài nguyên giúp việc này trở nên dễ dàng hơn nhiều."
+
+#: ../../electron.rst:8
+msgid ""
+"This guide provides information on how building Electron applications "
+"differs from other applications. It also includes information on the tooling "
+"for building Electron applications and how to use it."
+msgstr ""
+"Hướng dẫn này cung cấp thông tin về sự khác biệt của việc xây dựng ứng dụng "
+"Electron so với các ứng dụng khác. Nó cũng bao gồm thông tin về công cụ để "
+"xây dựng các ứng dụng Electron và cách sử dụng nó."
+
+#: ../../electron.rst:12
+msgid ""
+"The guide walks through the `manifest file <https://github.com/flathub/"
+"electron-sample-app/blob/master/flatpak/org.flathub.electron-sample-app."
+"yml>`_ of the `sample Electron Flatpak application <https://github.com/"
+"flathub/electron-sample-app>`_. Before you start, it is a good idea to take "
+"a look at this, either online or by downloading the application."
+msgstr ""
+"Hướng dẫn này sẽ đi qua `tệp kê khai <https://github.com/flathub/electron-"
+"sample-app/blob/master/flatpak/org.flathub.electron-sample-app.yml>`_ của "
+"`ứng dụng Flatpak Electron mẫu <https://github.com/flathub/electron-sample-"
+"app>`_. Trước khi bắt đầu, bạn nên xem qua nó trực tuyến hoặc bằng cách tải "
+"xuống ứng dụng."
+
+#: ../../electron.rst:21
+msgid "Building the sample application"
+msgstr "Xây dựng ứng dụng mẫu"
+
+#: ../../electron.rst:23
+msgid ""
+"While it isn't strictly necessary, you might want to try building and "
+"running the sample application yourself."
+msgstr ""
+"Mặc dù điều này không thực sự cần thiết nhưng bạn có thể muốn thử tự mình "
+"xây dựng và chạy ứng dụng mẫu."
+
+#: ../../electron.rst:26
+msgid ""
+"To get setup for the build, download or clone the sample app from GitHub, "
+"and navigate to the ``/flatpak`` directory in the terminal. You must also "
+"install the Electron base app and the Node.js SDK extension::"
+msgstr ""
+"Để thiết lập bản dựng, hãy tải xuống hoặc sao chép ứng dụng mẫu từ GitHub và "
+"điều hướng đến thư mục ``/flatpak`` trong terminal. Bạn cũng phải cài đặt "
+"ứng dụng cơ sở Electron và phần mở rộng Node.js SDK::"
+
+#: ../../electron.rst:33
+msgid "Then you can run the build::"
+msgstr "Sau đó, bạn có thể bắt đầu bản dựng::"
+
+#: ../../electron.rst:37
+msgid "Finally, the application can be run with::"
+msgstr "Cuối cùng, ứng dụng có thể được chạy với::"
+
+#: ../../electron.rst:42
+msgid "Basic configuration"
+msgstr "Cấu hình cơ bản"
+
+#: ../../electron.rst:44
+msgid ""
+"The first part of the sample application's manifest specifies the "
+"application's ID. It also configures the runtime and SDK:"
+msgstr ""
+"Phần đầu tiên của tệp kê khai của ứng dụng mẫu chỉ định định danh của ứng "
+"dụng. Nó cũng cấu hình runtime và SDK:"
+
+#: ../../electron.rst:54
+msgid ""
+"The Freedesktop runtime is generally the best runtime to use with Electron "
+"applications, since it is the most minimal runtime, and other dependencies "
+"will be specific to Electron itself."
+msgstr ""
+"Runtime Freedesktop nói chung là runtime tốt nhất để sử dụng với các ứng "
+"dụng Electron, vì đây là runtime nhỏ nhất, và các dependency khác là dành "
+"riêng cho chính Electron."
+
+#: ../../electron.rst:59
+msgid "The Electron base app"
+msgstr "Ứng dụng cơ sở Electron"
+
+#: ../../electron.rst:61
+msgid ""
+"Next, the manifest specifies that the Electron base app should be used, by "
+"specifying the ``base`` and ``base-version`` properties in the application "
+"manifest:"
+msgstr ""
+"Tiếp theo, tệp kê khai chỉ định rằng ứng dụng cơ sở Electron (Electron base "
+"app) nên được sử dụng, qua việc chỉ định các thuộc tính ``base`` và ``base-"
+"version`` trong tệp kê khai ứng dụng:"
+
+#: ../../electron.rst:70
+msgid ""
+"Base apps are described in :doc:`dependencies`.  Using the Electron base app "
+"is much faster and more convenient than manually building Electron "
+"dependencies. It also has the advantage of reducing the amount of "
+"duplication on users' machines, since it means that Electron is only saved "
+"once on disk."
+msgstr ""
+"Ứng dụng cơ sở được mô tả trong :doc:`dependencies`. Sử dụng ứng dụng cơ sở "
+"Electron nhanh hơn và thuận tiện hơn nhiều so với việc xây dựng các Electron "
+"dependencies theo cách thủ công. Nó cũng có ưu điểm là giảm số lượng tệp "
+"trùng lặp trên máy của người dùng, vì điều đó có nghĩa là Electron chỉ được "
+"lưu một lần trên đĩa."
+
+#: ../../electron.rst:76
+msgid "The Node.js SDK extension"
+msgstr "Phần mở rộng SDK Node.js"
+
+#: ../../electron.rst:78
+msgid ""
+"In order to build Electron-based apps, you need Node.js available at build "
+"time. Flathub provides Node.js LTS versions as extensions for the SDK, so "
+"you can install one of them and add it in your apps' manifest:"
+msgstr ""
+"Để xây dựng các ứng dụng dựa trên Electron, bạn cần Node.js có sẵn tại thời "
+"điểm xây dựng. Flathub cung cấp các phiên bản LTS của Node.js dưới dạng phần "
+"mở rộng cho SDK, vì vậy bạn có thể cài đặt một trong số chúng và thêm nó vào "
+"tệp kê khai của ứng dụng:"
+
+#: ../../electron.rst:87
+msgid "Enable the extension by adding it to ``PATH``:"
+msgstr "Kích hoạt phần mở rộng bằng cách thêm nó vào ``PATH``:"
+
+#: ../../electron.rst:94
+msgid ""
+"Note that the extension name (last portion of reverse-dns notation, "
+"``node18`` in this example) must be the same in ``sdk-extensions`` and "
+"``append-path``."
+msgstr ""
+"Lưu ý rằng tên phần mở rộng (phần cuối của ký hiệu dns ngược (reverse-dns "
+"notation), ``node18`` trong ví dụ này) phải giống nhau trong ``sdk-"
+"extensions`` và ``append-path``."
+
+#: ../../electron.rst:98
+msgid "Command"
+msgstr "Lệnh (Command)"
+
+#: ../../electron.rst:100
+msgid ""
+"The ``command`` property indicates that a script called ``run.sh`` is to be "
+"executed to run the application. This will be explained in further detail "
+"later."
+msgstr ""
+"Thuộc tính ``command`` chỉ ra rằng một script tên là ``run.sh`` sẽ được thực "
+"thi để chạy ứng dụng. Điều này sẽ được giải thích chi tiết hơn ở phía sau."
+
+#: ../../electron.rst:109
+msgid "Sandbox permissions"
+msgstr "Quyền của hộp cát"
+
+#: ../../electron.rst:111
+msgid ""
+"The standard guidelines on sandbox permissions apply to Electron "
+"applications. However, Electron does not use Wayland by default. So for "
+"display access, only X11 should be used as the default configuration. This "
+"will make Electron use Xwayland in a wayland session and nothing else is "
+"required."
+msgstr ""
+"Các nguyên tắc tiêu chuẩn về quyền sandbox áp dụng cho các ứng dụng "
+"Electron. Tuy nhiên, Electron không sử dụng Wayland theo mặc định. Vì vậy, "
+"cho quyền truy cập display, chỉ nên sử dụng X11 làm cấu hình mặc định. Điều "
+"này sẽ làm cho Electron sử dụng Xwayland trong một phiên wayland và không "
+"cần gì khác."
+
+#: ../../electron.rst:117
+msgid ""
+"The sample app also configures pulseaudio for sound and enables network "
+"access."
+msgstr ""
+"Ứng dụng mẫu cũng cấu hình pulseaudio cho âm thanh và cho phép truy cập mạng."
+
+#: ../../electron.rst:131
+msgid ""
+"Native wayland support in electron is experimental and often unstable. It is "
+"advised to stick with the X11 and Xwayland configuration above as the "
+"default."
+msgstr ""
+"Hỗ trợ wayland nguyên gốc (native wayland) trong electron là thử nghiệm và "
+"thường không ổn định. Bạn nên cứ sử dụng cấu hình X11 và Xwayland ở trên làm "
+"mặc định."
+
+#: ../../electron.rst:135
+msgid ""
+"To enable experimental `native Wayland` support in Electron>=20, the ``--"
+"ozone-platform-hint=auto`` flag can be passed to the program. `auto` will "
+"choose Wayland when the session is wayland and Xwayland or X11 otherwise."
+msgstr ""
+"Để cho phép hỗ trợ `Wayland gốc` còn đang thử nghiệm trong Electron>=20, "
+"flag ``--ozone-platform-hint=auto`` có thể được đưa vào ứng dụng. `auto` sẽ "
+"chọn Wayland khi phiên là wayland, và Xwayland hoặc X11 những khi khác."
+
+#: ../../electron.rst:140
+msgid ""
+"The recommended option is to leave it to the user. So ``--socket=x11`` "
+"should be used in manifest and Wayland can be tested with::"
+msgstr ""
+"Hướng đi được đề xuất là để nó cho người dùng lựa chọn. Vì vậy, ``--"
+"socket=x11`` nên được sử dụng trong tệp kê khai và Wayland có thể được kiểm "
+"tra với::"
+
+#: ../../electron.rst:145
+msgid ""
+"To make native wayland the `default` for users ``--socket=fallback-x11`` and "
+"``--socket=wayland`` must be used in the manifest."
+msgstr ""
+"Để đặt native wayland làm `mặc định` cho người dùng, ``--socket=fallback-"
+"x11`` và ``--socket=wayland`` phải được sử dụng trong tệp kê khai."
+
+#: ../../electron.rst:148
+msgid ""
+"Client-side window decorations in native wayland can be enabled by passing "
+"``--enable-features=WaylandWindowDecorations`` (Electron>=17)."
+msgstr ""
+"Trang trí cửa sổ phía máy khách (client-side window decorations) trong "
+"wayland nguyên gốc có thể được kích hoạt bằng cách sử dụng ``--enable-"
+"features=WaylandWindowDecorations`` (Electron>=17)."
+
+#: ../../electron.rst:151
+msgid ""
+"Electron uses ``libnotify`` on Linux to provide desktop notifications. "
+"libnotify `since 0.8.0 <https://gitlab.gnome.org/GNOME/libnotify/-/"
+"merge_requests/27>`_ automatically uses the `notification portal <https://"
+"flatpak.github.io/xdg-desktop-portal/docs/doc-org.freedesktop.portal."
+"Notification.html>`_ when inside a sandboxed environment and ``--talk-"
+"name=org.freedesktop.Notifications`` is not required."
+msgstr ""
+"Electron sử dụng ``libnotify`` trên Linux để cung cấp thông báo desktop. "
+"libnotify `kể từ 0.8.0 <https://gitlab.gnome.org/GNOME/libnotify/-/"
+"merge_requests/27>`_ tự động sử dụng `notification portal <https://flatpak."
+"github.io/xdg-desktop-portal/docs/doc-org.freedesktop.portal.Notification."
+"html>`_ khi ở trong môi trường hộp cát và ``--talk-name=org.freedesktop."
+"Notifications`` là không bắt buộc."
+
+#: ../../electron.rst:157
+msgid ""
+"``org.electronjs.Electron2.BaseApp`` since ``branch/23.08`` comes with "
+"``libnotify>=0.8.0``"
+msgstr ""
+"``org.electronjs.Electron2.BaseApp`` kể từ ``branch/23.08`` đi kèm với "
+"``libnotify>=0.8.0``"
+
+#: ../../electron.rst:163
+msgid "Using correct desktop file name"
+msgstr "Sử dụng đúng tên tệp desktop"
+
+#: ../../electron.rst:165
+msgid ""
+"It's important for Linux applications to set the correct desktop file name. "
+"If not, it can lead to problems like missing the window icon under Wayland. "
+"By default Electron uses ``{appname}.desktop`` as desktop file name. In "
+"Flatpak the name of the desktop file must be the id of the Flatpak. To tell "
+"Electron to use another name you need to set the ``desktopName`` key in your "
+"``package.json`` e.g. ``\"desktopName\": \"com.example.MyApp.desktop\"``."
+msgstr ""
+"Điều quan trọng đối với các ứng dụng Linux là đặt tên tệp desktop chính xác. "
+"Nếu không, nó có thể dẫn đến các vấn đề như thiếu biểu tượng cửa sổ dưới "
+"Wayland. Theo mặc định, Electron sử dụng ``{appname}.desktop`` làm tên tệp "
+"desktop. Trong Flatpak, tên của tệp desktop phải là định danh của Flatpak. "
+"Để yêu cầu Electron sử dụng tên khác, bạn cần đặt key \"desktopName\" trong "
+"\"package.json\", ví dụ:``\"desktopName\": \"com.example.MyApp.desktop\"``."
+
+#: ../../electron.rst:169
+msgid ""
+"In case you repack a binary, you can use the ``patch-desktop-filename`` "
+"script provided by the BaseApp. Each Electron binary ships with ``resources/"
+"app.asar`` file. You need to call ``patch-desktop-filename`` with this file "
+"as argument. If your application is installed under ``${FLATPAK_DEST}/my-"
+"app`` you need to run ``patch-desktop-filename ${FLATPAK_DEST}/my-app/"
+"resources/app.asar``."
+msgstr ""
+"Trong trường hợp bạn đóng gói một gói binary, bạn có thể sử dụng script "
+"``patch-desktop-filename`` do BaseApp cung cấp. Mỗi gói nhị phân Electron đi "
+"kèm với tệp ``resources/app.asar``. Bạn cần gọi ``patch-desktop-filename`` "
+"với tệp này làm đối số (argument). Nếu ứng dụng của bạn được cài đặt trong "
+"``${FLATPAK_DEST}/my-app``, bạn cần chạy ``patch-desktop-filename "
+"${FLATPAK_DEST}/my-app/resources/app.asar``."
+
+#: ../../electron.rst:174
+msgid "Build options"
+msgstr "Các tùy chọn cho bản dựng"
+
+#: ../../electron.rst:176
+msgid ""
+"These build options aren't strictly necessary, but can be useful if "
+"something goes wrong. ``env`` allows setting an array of environment "
+"variables, in this case we set ``NPM_CONFIG_LOGLEVEL`` to ``info`` so that "
+"``npm`` gives us more detailed error messages."
+msgstr ""
+"Các tùy chọn bản dựng này không thực sự cần thiết, nhưng có thể hữu ích nếu "
+"có sự cố. ``env`` cho phép thiết lập một loạt các biến môi trường, trong "
+"trường hợp này ta đặt ``NPM_CONFIG_LOGLEVEL`` là ``info`` để ``npm`` cung "
+"cấp thông báo lỗi chi tiết hơn."
+
+#: ../../electron.rst:192
+msgid "The application module"
+msgstr "Mô-đun ứng dụng"
+
+#: ../../electron.rst:194
+msgid ""
+"The final section of the manifest defines how the application module should "
+"be built. This is where some of the additional logic for Electron and Node."
+"js can be found."
+msgstr ""
+"Phần cuối cùng của tệp kê khai xác định cách xây dựng mô-đun của chính ứng "
+"dụng. Đây là nơi có thể thêm một số logic bổ sung cho Electron và Node.js."
+
+#: ../../electron.rst:198
+msgid ""
+"By default, ``flatpak-builder`` doesn't allow build tools to access the "
+"network. This means that tools which rely on downloading sources will not "
+"work. Therefore, Node.js packages must be downloaded prior to running the "
+"build. Setting the  ``electron_config_cache`` environment variable means "
+"that these will be found when it comes to the build."
+msgstr ""
+"Theo mặc định, ``flatpak-builder`` không cho phép các công cụ xây dựng truy "
+"cập mạng. Điều này có nghĩa là các công cụ mà dựa vào các nguồn cần tải "
+"xuống sẽ không hoạt động. Do đó, các gói Node.js phải được tải xuống trước "
+"khi chạy bản dựng. Đặt biến môi trường ``electron_config_cache`` để chúng sẽ "
+"được tìm thấy trong quá trình dựng."
+
+#: ../../electron.rst:204
+msgid ""
+"The next part of the manifest describes how the application should be built. "
+"The simple buildsystem option is used, which allows a sequence of commands "
+"to be specified, which are used for the build. The download location and "
+"hash of the application are also specified."
+msgstr ""
+"Phần tiếp theo của tệp kê khai mô tả cách ứng dụng nên được xây dựng. Tùy "
+"chọn hệ thống xây dựng đơn giản `simple` được sử dụng, cho phép chỉ định một "
+"chuỗi các lệnh được sử dụng cho bản dựng. Vị trí tải xuống và hash (giá trị "
+"băm) của ứng dụng cũng được chỉ định."
+
+#: ../../electron.rst:227
+msgid "Bundling NPM packages"
+msgstr "Đóng gói các gói NPM"
+
+#: ../../electron.rst:229
+msgid "The next line is how NPM modules get bundled as part of Flatpaks:"
+msgstr ""
+"Dòng tiếp theo là cách các mô-đun NPM được đóng gói như một phần của Flatpak:"
+
+#: ../../electron.rst:235
+msgid ""
+"Since even simple Node.js applications depend on dozens of packages, it "
+"would be impractical to specify all of them as part of a manifest file. A "
+"`Python script <https://github.com/flatpak/flatpak-builder-tools/tree/master/"
+"node>`__ has therefore been developed to download Node.js packages with NPM "
+"or Yarn and include them in an application's sources."
+msgstr ""
+"Vì ngay cả các ứng dụng Node.js đơn giản cũng phụ thuộc vào hàng tá gói, "
+"việc chỉ định bằng tay tất cả chúng trong một tệp kê khai là không thực tế. "
+"Do đó, một `Python script <https://github.com/flatpak/flatpak-builder-tools/"
+"tree/master/node>`__ đã được phát triển để tải xuống các gói Node.js bằng "
+"NPM hoặc Yarn và đưa chúng vào nguồn của ứng dụng."
+
+#: ../../electron.rst:241
+msgid ""
+"The Python script requires a ``package-lock.json`` (or ``yarn.lock``) file. "
+"This file contains information about the packages that an application "
+"depends on, and can be generated by running ``npm install --package-lock-"
+"only`` from an application's root directory. The script is then run as "
+"follows::"
+msgstr ""
+"Python script yêu cầu tệp ``package-lock.json`` (hoặc ``yarn.lock``). Tệp "
+"này chứa thông tin về các gói mà ứng dụng phụ thuộc vào và có thể được tạo "
+"bằng cách chạy ``npm install --package-lock-only`` từ thư mục gốc của ứng "
+"dụng. Script sau đó được chạy như sau::"
+
+#: ../../electron.rst:248
+msgid ""
+"This generates the manifest JSON needed to build the NPM/Yarn packages for "
+"the application, which are outputted to a file called ``generated-sources."
+"json``. The content of this file can be copied to the application's manifest "
+"but, because it is often very long, it is often best to link to it from the "
+"main manifest, which is done by adding ``generated-source.json`` as a line "
+"in the manifest section, as seen above."
+msgstr ""
+"Nó tạo ra phần kê khai dạng JSON cần thiết để xây dựng các gói NPM/Yarn cho "
+"ứng dụng, được xuất ra một tệp có tên là ``generated-sources.json``. Nội "
+"dung của tệp này có thể được sao chép vào tệp kê khai của ứng dụng, nhưng vì "
+"nó thường rất dài nên tốt nhất là liên kết đến nó từ tệp kê khai chính, được "
+"thực hiện bằng cách thêm ``generated-source.json`` thành một dòng trong phần "
+"kê khai, như đã thấy ở trên."
+
+#: ../../electron.rst:256
+msgid "Launching the app"
+msgstr "Khởi chạy ứng dụng"
+
+#: ../../electron.rst:258
+msgid ""
+"The Electron app is run through a simple script. This can be given any name "
+"but must be specified in the manifest's ``\"command\":`` property. See below "
+"a sample wrapper for launching app:"
+msgstr ""
+"Ứng dụng Electron được chạy thông qua một script đơn giản. Nó có thể được "
+"đặt bất kì tên nào nhưng phải được chỉ định trong thuộc tính ``command\":`` "
+"của tệp kê khai. Tham khảo phía dưới về một trình bao bọc (wrapper) mẫu giúp "
+"khởi chạy ứng dụng:"
+
+#: ../../electron.rst:270
+msgid "Build commands"
+msgstr "Các lệnh xây dựng (Build commands)"
+
+#: ../../electron.rst:272
+msgid ""
+"Last but not least, since the simple build option is being used, a list of "
+"build commands must be provided. As can be seen, ``npm`` is run with the "
+"``npm_config_offline=true`` environment variable, installing dependencies "
+"from packages that have already been cached. These are copied to ``/app/main/"
+"``. Finally the ``run.sh`` script is installed to ``/app/bin/`` so that it "
+"will be on ``$PATH``:"
+msgstr ""
+"Cuối cùng nhưng cũng không kém phần quan trọng, vì tùy chọn xây dựng đơn "
+"giản đang được sử dụng, một danh sách các lệnh xây dựng phải được cung cấp. "
+"Có thể thấy, ``npm`` được chạy với biến môi trường "
+"``npm_config_offline=true`` giúp cài đặt các dependency từ các gói đã được "
+"lưu trong bộ nhớ đệm. Chúng được sao chép vào ``/app/main/``. Cuối cùng, "
+"script ``run.sh`` được cài đặt vào ``/app/bin/`` để nó nằm trên ``$PATH``:"
+
+#: ../../electron.rst:294
+msgid ""
+"Note that if the application you are trying to package contains a ``build`` "
+"block in ``package.json`` with instructions for Linux, this can cause "
+"``electron-builder`` to try to fetch additional binaries at build-time (Even "
+"if `--dir` option is used). The following example shows a configuration that "
+"will try to download AppImage binaries:"
+msgstr ""
+"Lưu ý rằng nếu ứng dụng đang đóng gói chứa một khối ``build`` trong "
+"``package.json`` với các chỉ dẫn cho Linux, nó có thể khiến ``electron-"
+"builder`` cố gắng tìm các gói nhị phân bổ sung tại thời điểm xây dựng (Ngay "
+"cả khi tùy chọn `--dir` được sử dụng). Ví dụ sau đây cho thấy một cấu hình "
+"sẽ cố gắng tải xuống tệp nhị phân AppImage:"
+
+#: ../../electron.rst:304
+msgid ""
+"The preferred way of fixing this, is not a patch, but a build-time edit "
+"using ``jq``. The following command will replace ``\"target\": "
+"\"AppImage\"`` with ``\"target\": \"dir\"``:"
+msgstr ""
+"Cách được đề xuất để khắc phục điều này không phải là một bản vá, mà là một "
+"chỉnh sửa tại thời điểm xây dựng sử dụng ``jq``. Lệnh sau sẽ thay thế "
+"``'target\": \"AppImage\"`` bằng ``\"target\": \"dir\"``:"
+
+#: ../../electron.rst:311
+msgid "Make setProgressBar and setBadgeCount work"
+msgstr "Làm setProgressBar và setBadgeCount hoạt động"
+
+#: ../../electron.rst:312
+msgid ""
+"The `setProgressBar <https://www.electronjs.org/docs/latest/api/browser-"
+"window#winsetprogressbarprogress-options>`_ and `setBadgeCount <https://www."
+"electronjs.org/docs/latest/api/app#appsetbadgecountcount-linux-macos>`_ "
+"functions allow showing a progress bar and a badge count in the window icon. "
+"It is implemented under Linux using the `UnityLauncherAPI <https://wiki."
+"ubuntu.com/Unity/LauncherAPI>`_. This API is not implemented on every "
+"desktop environment. A known desktop environment which implements this is "
+"KDE. It is also implemented by the popular `Dash to Dock <https://micheleg."
+"github.io/dash-to-dock>`_ GNOME extension and `Plank <https://launchpad.net/"
+"plank>`_."
+msgstr ""
+"Các hàm `setProgressBar <https://www.electronjs.org/docs/latest/api/browser-"
+"window#winsetprogressbarprogress-options>`_ và `setBadgeCount <https://www."
+"electronjs.org/docs/latest/api/app#appsetbadgecountcount-linux-macos>`_ cho "
+"phép hiển thị thanh tiến trình và số lượng huy hiệu trong biểu tượng cửa sổ. "
+"Nó được triển khai trong Linux bằng cách sử dụng `UnityLauncherAPI <https://"
+"wiki.ubuntu.com/Unity/LauncherAPI>`_. API này không được triển khai trên mọi "
+"môi trường desktop. KDE là một trong số các môi trường desktop triển khai "
+"nó. Nó cũng được triển khai bởi tiện ích mở rộng GNOME `Dash to Dock "
+"<https://micheleg.github.io/dash-to-dock>`_ phổ biến và `Plank <https://"
+"launchpad.net/plank>`_."
+
+#: ../../electron.rst:315
+msgid ""
+"To make it work in Flatpak, the app needs to :ref:`use the correct desktop "
+"filename <use-correct-desktop-filename>`. The Flatpak also needs the ``--"
+"talk-name=com.canonical.Unity`` permission."
+msgstr ""
+"Để làm cho nó hoạt động trong Flatpak, ứng dụng cần :ref:`sử dụng đúng tên "
+"tệp desktop<use-correct-desktop-filename> `. Flatpak cũng cần có quyền ``--"
+"talk-name=com.canonical.Unity``."
+
+#: ../../electron.rst:317
+msgid ""
+"Electron checks `checks if it's running on Unity or KDE <https://github.com/"
+"electron/electron/blob/fb88375ab4d2161dbf7e958a2a94c7c6d97dc84c/shell/"
+"browser/linux/unity_service.cc#L64>`_ before using the UnityLauncherAPI. To "
+"make this work on other Desktops too, you need to set "
+"``XDG_CURRENT_SESSION=KDE`` and ``XDG_CURRENT_DESKTOP=KDE`` to pretend the "
+"app is running on KDE."
+msgstr ""
+"Electron sẽ `kiểm tra xem nó đang chạy trên Unity hay KDE <https://github."
+"com/electron/electron/blob/fb88375ab4d2161dbf7e958a2a94c7c6d97dc84c/shell/"
+"browser/linux/unity_service.cc#L64>`_ trước khi sử dụng UnityLauncherAPI. Để "
+"khiến nó hoạt động trên các Desktop khác, bạn cần đặt "
+"`XDG_CURRENT_SESSION=KDE`` và `XDG_CURRENT_DESKTOP=KDE`` để giả vờ là ứng "
+"dụng đang chạy trên KDE."
