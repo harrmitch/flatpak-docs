@@ -5,34 +5,33 @@ A brief overview of extensions can be found in :doc:`dependencies`. This
 guide will go in depth on how to write an extension manifest and explain
 the various properties used.
 
-The first step on writing or loading an extension is to define an extension
-point or use an existing one. The decision depends on where the extension
-should be made available.
+The first step in writing or loading an extension is to either define an
+extension point or use an existing one. You also have to decide where
+the extension should be made available.
 
-If for example it is a GTK/QT theme, it's best to define or use an
-extension point in the runtime, so that it can be made available for
-every application utilising said runtime.
+For example, if the extension is a GTK/QT theme, it's best to define or use the
+extension point in the runtime, so that it can be made available to any application
+using that runtime.
 
-If it is a specific tool eg. MPV plugins, which are only used by MPV,
-it's best to define or use an extension point in the application. If
-the tool is generic enough to be used by multiple unrelated applications,
-the extension point should be defined in the runtime.
+If the extension is a specific tool, like MPV plugins used only by MPV,
+you should define or use the extension point in the application. Conversely, if
+it is a generic tool to be used by multiple unrelated applications, define the
+extension point in the runtime.
 
-To see what are the available extension points in runtime or
-applications, please see the corresponding flatpak or build
-manifest.
+To view available extension points in a runtime or application, see the
+corresponding flatpak or build manifest.
 
-``.Debug, .Locale, .Sources`` extensions created by Flatpak builder do
-not need to be specified manually. These are automaitcally created and
-loaded if installed.
+Extensions like ``.Debug``, ``.Locale``, and ``.Sources`` created by Flatpak
+Builder do not need to be specified manually; they are automatically created
+and loaded if installed.
 
 Extension point
 ---------------
 
-Now to define an extension point the ``add-extensions`` property can be
-used in the manifest.
+To define an extension point, use the ``add-extensions`` property in the
+manifest.
 
-This is a typical example of an application extension point.
+Below is an example of an application extension point:
 
 .. code-block:: yaml
 
@@ -53,91 +52,90 @@ This is a typical example of an application extension point.
   cleanup-commands:
     - mkdir -p ${FLATPAK_DEST}/extension_directory
 
-The details of these properties are documented in the "Extension NAME"
-section of :doc:`flatpak-command-reference`. Some of it is discussed
-further below.
+Details of these properties are documented in the "Extension NAME"
+section of :doc:`flatpak-command-reference`. Some of them are discussed
+below.
 
 - ``org.flatpak.app.plugin`` is the name of the extension point.
   Extensions using this extension point must start their ID with the same
-  prefix, for example ``org.flatpak.app.plugin.foo``.
+  prefix, e.g, ``org.flatpak.app.plugin.foo``, which will serve as our
+  example extension for now. 
 
-- ``version`` is the branch to use when looking for the extension. This
-  is useful to have parallel installations of the same extension in case
-  of an API/ABI break. The value here will be the ``branch`` used in the
-  extension manifest.
-
-  If not specified it defaults to application or runtime branch of the
-  extension point.
+- ``version`` specifies the branch to use when looking for the extension. This
+  is useful for parallel installations of the same extension in case of an
+  API/ABI break. The value here will match the ``branch`` used in the extension
+  manifest.
+  
+  If not specified, it defaults to the branch of the application or runtime that the
+  extension point belongs to, which is ``45`` in our case.
 
 .. tip::
-  ``versions`` is same as ``version`` but can be used for specifying
-  multiple versions. For example, if an extension is published in the
-  ``beta`` branch and the application is published in the ``stable``
-  branch, to mount the extension in the application, the extension point
-  in the application needs to have ``versions: 'stable;beta'``.
+   ``versions`` is the same as ``version`` but allows specifying multiple
+   versions. For example, to mount an extension published in the ``beta`` branch
+   in an application published in the ``stable`` branch, the extension point in
+   the application needs to specify ``versions: 'stable;beta'``.
 
-- ``directory`` is the path relative to prefix where everything is
-  mounted by flatpak. For a runtime this will be relative to ``/usr``
-  and for an application it will be relative to ``/app``. This supports
-  a single value.
+- ``directory`` determines the relative path at which the extension will be mounted in
+  the Flatpak sandbox. For runtimes, it's relative to ``/usr``; for applications,
+  it's relative to ``/app``. In our case, ``/app/extension_directory/foo/``
+  will be where our extension is mounted. This property accepts a single value.
 
-- ``add-ld-path`` adds a path relative to the extension prefix
-  ``/app/extension_directory/foo/lib``, so that a library residing there
-  can be loaded. This supports a single value. If the ``$LD_LIBRARY_PATH``
-  environment variable exists, the path here is appended to it, otherwise
-  it is put in a ld config file in ``/run/flatpak/ld.so.conf.d``.
+- ``add-ld-path`` is a path relative to the extension point directory that
+  will be appended to the ``$LD_LIBRARY_PATH`` environment variable if it
+  exists; otherwise, it will be added to ``/run/flatpak/ld.so.conf.d``. For our example,
+  the final path added would be ``/app/extension_directory/foo/lib``. 
+  Libraries located in this path can then be loaded. This property accepts a single value.
 
-- ``merge-dirs: plug-ins;help`` will merge the contents of these
-  directories from multiple extensions using the same extension point.
-  For example, if ``/app/extension_directory/foo/plug-ins`` and
-  ``/app/extension_directory/bar/plug-ins`` exist, they will be merged
-  and made available at ``/app/extension_directory/plug-ins``. Similarly
-  for ``help``.
+- ``merge-dirs: plug-ins;help`` merges the contents of these directories
+  from multiple extensions sharing the same extension point. For example,
+  directories like ``/app/extension_directory/foo/plug-ins`` and
+  ``/app/extension_directory/bar/plug-ins`` will be merged into
+  ``/app/extension_directory/plug-ins``; that's also the case for 
+  ``help``.
 
-- ``subdirectories: true`` allows to have multiple extensions under the
-  same ``directory``. So two extensions like
-  ``org.flatpak.app.plugin.foo`` and ``org.flatpak.app.plugin.bar`` will
-  be mounted at ``/app/extension_directory/foo`` and
-  ``/app/extension_directory/bar``.
+- ``subdirectories: true`` allows having multiple extensions under the same
+  ``directory``. Then, extensions like ``org.flatpak.app.plugin.foo`` and
+  ``org.flatpak.app.plugin.bar`` will be mounted at
+  ``/app/extension_directory/foo`` and ``/app/extension_directory/bar``,
+  respectively.
 
-- ``no-autodownload: true`` will prevent installing all extensions
-  under this extension point. This is the default.
+- ``no-autodownload: true`` prevents automatically downloading all extensions
+  matching this extension point when updating or installing the application.
+  This is the default behavior.
 
-- ``autodelete: true`` will remove all extensions under this extension
-  point when the application is removed.
-
-  ``.Debug`` and ``.Locale`` extensions are created with
-  ``autodelete: true`` by default.
+- ``autodelete: true`` removes all extensions matching this extension point
+ when the application is removed. ``.Debug`` and ``.Locale`` extensions are
+  created with ``autodelete: true`` by default.
 
 - ``mkdir -p ${FLATPAK_DEST}/extension_directory`` runs during the cleanup
   phase. It is used to initialise an empty directory for the extension to
   be loaded. This can also be done using ``post-install`` or ``build-commands``
-  in a module. The directory has to end up in the final flatpak. If it is
-  missing, there will be an error while running the application.
+  in a module. The directory must exist in the final flatpak. Otherwise,
+  there will be an error while running the application.
 
-There is no extension property to extend the ``PATH``.
+There is no extension property for extending the ``PATH``.
 
 .. note::
 
-  If the extension point is defined in a base runtime or SDK manifest
-  ``add-extensions`` will make the extension point land in both
-  ``.Sdk`` and ``.Platform``. If the extension point needs to be in only
-  the child ``.Sdk`` but not in the child ``.Platform``
-  ``inherit-sdk-extensions`` should be used which is discussed below.
+  If the extension point is defined in a base runtime or SDK manifest,
+  ``add-extensions`` will make the extension point available in both
+  ``.Sdk`` and ``.Platform``. If the extension needs to be only in the
+  ``.Sdk`` and not the ``.Platform``, use ``inherit-sdk-extensions``,
+  which is discussed below.
 
 There are other properties like ``download-if``, ``enable-if``,
-``autoprune-unless`` etc. These are conditionals which must be ``true``
-for the action to happen. These are typically not used in application
-extension points.
+``autoprune-unless``, etc. These are conditionals which must be 
+``true`` for their actions to happen. These are typically not used in
+application extension points.
 
-An example of an extension point defined in runtime is the GL extension
-point used in `Freedesktop SDK <https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/blob/1a8039407f8573725b16eab8779f2b0e1cd01629/elements/flatpak-images/platform.bst>`_
+An example of an extension point defined in the runtime is the GL extension
+point used in the `Freedesktop SDK <https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/blob/1a8039407f8573725b16eab8779f2b0e1cd01629/elements/flatpak-images/platform.bst>`_.
 Freedesktop SDK uses `buildstream <https://buildstream.build/index.html>`_,
 so the `format <https://docs.buildstream.build/master/format_project.html>`_
 is different from the usual ``json`` or ``yaml`` format used by Flatpak
 manifests.
 
-.. code-block:: yaml
+.. code-block:: bst
 
   Extension org.freedesktop.Platform.GL:
     # 1.4 is for Nvidia drivers
@@ -153,42 +151,37 @@ manifests.
     enable-if: "active-gl-driver"
     autoprune-unless: active-gl-driver
 
-Most of this is already discussed above. Variables starting with ``%``
-are private to the Freedesktop SDK. The version ``1.4`` is only used
-for the proprietary NVIDIA drivers and is static since they have no
-API/ABI guarantee.
+Most of these has been discussed above. Variables starting with ``%``
+are specific to the Freedesktop SDK. The version ``1.4`` is used only for
+NVIDIA drivers since they have no API/ABI guarantee.
 
-``active-gl-driver`` is a flatpak conditional that is true if the name
-of the active GL driver matches the extension point basename. The value
-can be checked with ``flatpak --gl-drivers`` where ``host`` and
-``default`` are always inserted. The command also looks at the
-``FLATPAK_GL_DRIVERS`` environment variable and
-``/sys/module/nvidia/version`` for nvidia kernel module version.
+``active-gl-driver`` is a Flatpak conditional that is ``true`` if the
+active GL driver matches the extension point basename. You can check the
+value with ``flatpak --gl-drivers``, where ``host`` and ``default`` are
+always included. The command also checks ``FLATPAK_GL_DRIVERS`` and
+``/sys/module/nvidia/version`` for the Nvidia kernel module version.
 
-The ``default`` corresponds to a stable mesa fallback build whereas
-``host`` is for `unmaintained` Flatpak extensions installed on host.
+The ``default`` refers to a stable Mesa fallback build, while ``host``
+applies to unmaintained Flatpak extensions installed on the host.
 
-The resultant extension is called ``org.freedesktop.Platform.GL.default``
-and it is downloaded and enabled automatically if ``active-gl-driver``
-is true and deleted if only it is false.
+The resulting extension is called ``org.freedesktop.Platform.GL.default``.
+It’s downloaded and enabled automatically if ``active-gl-driver`` is true
+and deleted when false.
 
-The following conditionals are available: download-if, autoprune-unless
-enable-if.
-
-``download-if`` and ``enable-if`` supports the following:
+Available conditionals for ``download-if`` and ``enable-if`` are:
 
 - ``active-gl-driver``
-- ``active-gtk-theme`` is true if the host GTK theme via ``org.gnome.desktop.interface``
-  matches the extension basename.
-- ``have-intel-gpu`` is true if the i915 kernel module is loaded.
-- ``have-kernel-module-{module_name}`` is true if ``module_name`` is
-  found in ``/proc/modules``.
-- ``on-xdg-desktop-{desktop_name}`` is true if ``desktop_name``
-  matches the value of ``XDG_CURRENT_DESKTOP`` on host.
+- ``active-gtk-theme`` (true if the host GTK theme via
+  ``org.gnome.desktop.interface`` matches the extension basename)
+- ``have-intel-gpu`` (true if the i915 kernel module is loaded)
+- ``have-kernel-module-{module_name}`` (true if ``module_name`` is found
+  in ``/proc/modules``)
+- ``on-xdg-desktop-{desktop_name}`` (true if ``desktop_name`` matches
+  the value of ``XDG_CURRENT_DESKTOP`` on the host)
 
 ``autoprune-unless`` supports only ``active-gl-driver``. If this evaluates
-to ``false`` the extension will be considered unused and removed
-automatically when doing ``flatpak uninstall --unused``.
+to ``false``, the extension will be considered unused and removed during
+``flatpak uninstall --unused``.
 
 Loading existing extensions
 ---------------------------
@@ -205,7 +198,7 @@ The extensions are mounted in alphabetical path order of directory.
   certain conditions and these do not need be added to application
   manifests. Please see below for the purpose of extensions or
   extension points defined in the runtime. Similarly extensions created
-  by Flatpak builder like ``.Locale, .Debug`` also do not need to be
+  by Flatpak Builder like ``.Locale, .Debug`` also do not need to be
   in application manifest.
 
 ``org.freedesktop.Platform.ffmpeg-full`` is an application extension

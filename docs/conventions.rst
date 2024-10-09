@@ -1,85 +1,84 @@
 Requirements & Conventions
 ==========================
 
-Flatpak deliberately makes as few requirements of applications as
-possible. However, a small number of standard Linux desktop conventions
-are expected, primarily to ensure that applications integrate with Linux
-desktops and app centers. Developers might also encounter a small number of
-Linux technical conventions.
+Flatpak deliberately imposes as few requirements on applications as possible. 
+However, a small number of standard Linux desktop conventions are expected, 
+primarily to ensure that applications integrate smoothly with Linux desktops 
+and app centers. Developers might also encounter a small number of 
+technical conventions specific to Linux.
 
-Information on further desktop integration options can be found in
+Further information on additional desktop integration options can be found in
 :doc:`desktop-integration`.
 
 Expected Standards
 ------------------
 
-Applications that use Flatpak are generally expected to comply with the
+Applications using Flatpak are generally expected to comply with the
 following standards. Applications that have previously targeted the Linux
-desktop will typically need to make very few (if any) changes to do this.
+desktop will typically need to make very few (if any) changes to meet these 
+requirements.
 
 Application IDs
 ```````````````
 
 As described in :doc:`using-flatpak`, Flatpak requires each application to have a
-unique identifier, which has a form such as ``org.example.app``.
+unique identifier, which follows a format such as ``org.example.app``.
 
-The format is in reverse-DNS style so the first section should be a domain
-controlled by the project and the trailing section represents the specific project.
-There are some exceptions to this, such as extensions using the base application-id of the project
-they extend rather than their own.
+The format is in reverse-DNS style, meaning the first section should be a
+domain controlled by the project, while the trailing section represents the
+specific project. There are exceptions to this, such as extensions that 
+use the base application-id of the project they extend rather than their own.
 
-As will be seen below and in future sections, this ID is expected to be used in a number of places.
+As discussed below and in subsequent sections, this ID is expected to be used in various contexts.
 Developers must follow the standard `D-Bus naming conventions for bus names
 <https://dbus.freedesktop.org/doc/dbus-specification.html#message-protocol-names>`_
 when creating their own IDs. This format is
 already recommended by the `Desktop File specification
 <https://specifications.freedesktop.org/desktop-entry-spec/latest/file-naming.html>`_
-and `Appstream specification
-<https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html#sect-Metadata-GenericComponent>`_
-also.
+and the `Appstream specification
+<https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html#sect-Metadata-GenericComponent>`_.
 
-For some practical examples of bad IDs
+Here are some practical examples of poor ID choices:
 
 - ``org.example.desktop``
 
-  This is a bad ID because the Appstream standard for legacy reasons treats IDs ending with
-  ``.desktop`` as a special case causing inconsistency. For this same reason, ``.Desktop`` suffixes
-  should not be used for newly named applications. Don't hesitate to repeat the application name
-  even if it already is part of the domain name section of the identifier (eg. ``org.example.Example``).
+  This ID is problematic because the Appstream standard, for legacy reasons,
+  treats IDs ending with ``.desktop`` as a special case, which can lead to
+  inconsistency. For the same reason, ``.Desktop`` suffixes should not be used
+  for newly named applications. Don't hesitate to repeat the application name
+  even if it is already part of the domain name section of the identifier
+  (e.g. ``org.example.Example``).
 
 - ``io.github.foo``
 
   This is problematic because while ``foo.github.io`` may be unique to your project, it does not
-  include a project-specific identifier. This may cause issues if another project creates
-  ``io.github.foo-bar`` which should be its own namespace but areas of ``flatpak`` may treat them
-  similar. A better ID would be ``io.github.foo.foo`` even if it is redundant.
+  include a project-specific identifier. This can lead to conflicts if another project creates
+  ``io.github.foo-bar``, which should have its own namespace but is treated as similar by areas of
+  ``flatpak``. A better ID would be ``io.github.foo.foo``, even if it seems redundant.
 
 - ``org.example-site.foo``
 
-  This ID is not valid according to the DBus specification as a dash
-  ``-`` isn't allowed except on the last component. You should replace
-  ``-`` with an undercore ``_`` and therefore, use
-  ``org.example_site.Foo`` instead.
+  This ID is not valid according to the D-Bus specification, as the dash
+  ``-`` isn't allowed except in the last component. You should replace
+  the dash with an underscore ``_``, and thus use ``org.example_site.Foo`` instead.
 
 - ``com.github.foo.bar`` or ``com.gitlab.foo.bar``
 
-  While a project may be hosted on GitHub or GitLab it does not have
-  any control over the ``github.com`` or ``gitlab.com``
-  domain. Instead you should use ``io.github`` or ``io.gitlab`` as
-  shown above.
+  While a project may be hosted on GitHub or GitLab, it does not have
+  control over the ``github.com`` or ``gitlab.com`` domains.
+  Instead, you should use ``io.github`` or ``io.gitlab``, as shown above.
 
 - ``Org.Example.App``
 
-  The TLD portion of the ID must be lowercased and while not required
-  the application portion is recommended to be lowercase as well.
-  Instead you should use ``org.example.app``.
+  The top-level domain (TLD) portion of the ID must be lowercased, and while 
+  it is not required, the application portion is recommended to be in lowercase 
+  as well. Therefore, you should use ``org.example.app``.
 
 MetaInfo files
 ``````````````
 
 MetaInfo files provide metadata about applications, which is
-used by application stores (such as Flathub, GNOME Software
-and KDE Discover).
+used by application stores (such as Flathub, GNOME Software, and KDE Discover).
 
 The `Freedesktop AppStream specification
 <https://www.freedesktop.org/software/appstream/docs/>`_ provides a complete
@@ -87,14 +86,15 @@ reference for providing MetaInfo. You can use the online
 `AppStream MetaInfo Creator <https://www.freedesktop.org/software/appstream/metainfocreator/>`_
 to generate a basic file.
 
-MetaInfo files should be named with the application ID and the ``.metainfo.xml``
-file extension, and should be placed in ``/app/share/metainfo/``. For example::
+MetaInfo files should be named using the application ID with the 
+``.metainfo.xml`` file extension and should be placed in 
+``/app/share/metainfo/``. For example::
 
   /app/share/metainfo/org.gnome.Dictionary.metainfo.xml
 
-A legacy convention of having the ``.appdata.xml`` installed in ``/app/share/appdata``
-is also accepted as well, and ``flatpak-builder`` will check either directory with
-either extension.
+A legacy convention allows for having the ``.appdata.xml`` file installed in 
+``/app/share/appdata``. ``flatpak-builder`` will check either directory
+for its respective extension.
 
 The ``appstreamcli validate --explain`` command can be used to check MetaInfo
 files for errors.
@@ -107,7 +107,7 @@ is used for their application launcher. These icons should be
 provided in accordance with the `Freedesktop icon specification
 <https://specifications.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html>`_.
 
-Icons should be named with the application's ID, be in either PNG or SVG
+Icons should be named using the application's ID, be in either PNG or SVG
 format, and must be placed in the standard location::
 
   /app/share/icons/hicolor/$size/apps/
@@ -117,20 +117,21 @@ icon is::
 
   /app/share/icons/hicolor/128x128/apps/org.gnome.Dictionary.png
 
-Icons must be square shaped, ie their width and height must be the
+Icons must be square-shaped, meaning their width and height must be the
 same. The maximum size allowed by the specification is 512x512px. SVG
 icons are of size ``scalable``::
 
   /app/share/icons/hicolor/scalable/apps/org.gnome.Dictionary.svg
 
-Flatpak will export the following icon name patterns:
-``$FLATPAK_ID, $FLATPAK_ID.foo, $FLATPAK_ID-foo``. They may end with an
-extension suffix like ``.png, .svg``. Exported icons can be found in the
-``icons`` subfolder of ``$HOME/.local/share/flatpak/exports/share`` or
-``/var/lib/flatpak/exports/share`` depending on system or user install.
+Flatpak will export the following icon name patterns: 
+``$FLATPAK_ID``, ``$FLATPAK_ID.foo``, ``$FLATPAK_ID-foo``. They may end with an
+extension suffix like ``.png`` or ``.svg``. Exported icons can be found in the
+``icons`` subfolder of either ``$HOME/.local/share/flatpak/exports/share`` or
+``/var/lib/flatpak/exports/share``, depending on whether it's a system or user
+install.
 
 The distribution usually appends those paths to ``$XDG_DATA_DIRS`` on
-host when installing the ``flatpak`` package. Unless an icon is exported
+the host when installing the ``flatpak`` package. Unless an icon is exported
 by Flatpak, host applications cannot access it.
 
 Desktop files
@@ -141,14 +142,14 @@ information about each application. The `Freedesktop specification
 <https://specifications.freedesktop.org/desktop-entry-spec/latest/>`_
 provides a complete reference for writing desktop files.
 
-Desktop files should be named with the application's ID, followed
+Desktop files should be named using the application's ID, followed
 by the ``.desktop`` file extension, and should be placed in
 ``/app/share/applications/``. For example::
 
   /app/share/applications/org.gnome.Dictionary.desktop
 
 A minimal desktop file should contain at least the application's *name*,
-*exec* command, *type*, *icon* name and *categories*::
+*exec* command, *type*, *icon* name, and *categories*::
 
   [Desktop Entry]
   Name=Gnome Dictionary
@@ -167,14 +168,15 @@ argument like so::
   Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=gnome-dictionary org.gnome.Dictionary
 
 Flatpak will export the following desktop filename patterns:
-``$FLATPAK_ID.desktop, $FLATPAK_ID.foo.desktop, $FLATPAK_ID-foo.desktop``.
-Exported desktop files can be found in the ``applications`` subfolder of
-``$HOME/.local/share/flatpak/exports/share`` or
-``/var/lib/flatpak/exports/share`` depending on system or
+``$FLATPAK_ID.desktop``, ``$FLATPAK_ID.foo.desktop``,
+``$FLATPAK_ID-foo.desktop``. Exported desktop files can be found in the
+``applications`` subfolder of either
+``$HOME/.local/share/flatpak/exports/share`` or 
+``/var/lib/flatpak/exports/share``, depending on whether it's a system or 
 user install.
 
 The distribution usually appends those paths to ``$XDG_DATA_DIRS`` on
-host when installing the ``flatpak`` package. Unless a desktop file is
+the host when installing the ``flatpak`` package. Unless a desktop file is
 exported by Flatpak, host applications cannot access it.
 
 Technical conventions
@@ -206,7 +208,7 @@ runtime. This follows `standard Linux filesystem conventions
 
 For example, the root of the sandbox contains the ``/etc`` directory for
 configuration files and ``/usr`` for multi-user utilities and applications. In
-addition to this, each sandbox contains a top-level ``/app`` directory,
+addition to these, each sandbox contains a top-level ``/app`` directory,
 which is where the application's own files are located.
 
 XDG base directories
@@ -217,14 +219,14 @@ XDG base directories
 standard locations for user-specific application data. Popular toolkits provide
 convenience functions for accessing XDG base directories. These include:
 
-- Electron: XDG base directories can be accessed with ``app.getPath``
-- Glib: provides access to the XDG base directories through
+- Electron: Access XDG base directories with ``app.getPath``.
+- Glib: Access XDG base directories through
   the ``g_get_user_cache_dir ()``, ``g_get_user_data_dir ()``,
-  ``g_get_user_config_dir ()`` functions
-- Qt: provides access to XDG base directories with the `QStandardPaths
-  Class <https://doc.qt.io/qt-5/qstandardpaths.html>`_
+  ``g_get_user_config_dir ()`` functions.
+- Qt: Access XDG base directories with the `QStandardPaths
+  Class <https://doc.qt.io/qt-5/qstandardpaths.html>`_.
 
-However, applications that aren't using one of these toolkits can expect to
+However, applications not using one of these toolkits can expect to
 find their XDG base directories in the following locations:
 
 ===============  =================================  ================================
@@ -240,16 +242,16 @@ For example, GNOME Dictionary will store user-specific data in::
 
   ~/.var/app/org.gnome.Dictionary/data/gnome-dictionary
 
-These environment variables are always set by flatpak and override any host values.
-However if using the host directories are needed the ``$HOST_XDG_CONFIG_HOME``,
+These environment variables are always set by Flatpak and override any host values.
+However, if the host directories are needed, the ``$HOST_XDG_CONFIG_HOME``,
 ``$HOST_XDG_DATA_HOME``, ``$HOST_XDG_CACHE_HOME``, and ``$HOST_XDG_STATE_HOME`` environment
 variables will be set if a custom value was set on the host.
 
-Note that ``$XDG_STATE_HOME`` and ``$HOST_XDG_STATE_HOME`` is only supported by Flatpak 1.13
-and later. If your app needs to work on earlier versions of Flatpak, you can use the
-``--persist=.local/state`` and ``--unset-env=XDG_STATE_HOME`` finish args so
-the app will use the correct directory, even after Flatpak is later upgraded to
+Note that ``$XDG_STATE_HOME`` and ``$HOST_XDG_STATE_HOME`` are only supported by Flatpak 1.13
+and later. If your application needs to work on earlier versions of Flatpak, you can use the
+``--persist=.local/state`` and ``--unset-env=XDG_STATE_HOME`` finish args, ensuring
+the app will use the correct directory, even after Flatpak is later upgraded to version
 >1.13.
 
-Note that applications can be configured to use non-default base directory
-locations (see :doc:`sandbox-permissions`).
+Keep in mind that applications can be configured to use non-default base 
+directory locations (see :doc:`sandbox-permissions`).
